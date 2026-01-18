@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+h2{
+    color: rgb(255, 255, 255);
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5%;
+    height: 80vh;
+
+
+
+}
+
+#email{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    width: 250px;
+    margin-top: 4%;
+    color: grey;
+    margin-bottom: 3%;
+}
+
+#password{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    width: 250px;
+    margin-top: 4%;
+    color: grey;
+}
+
+#submit{
+    border: 1px solid green;
+    margin-top: 8%;
+    width: 150px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(1, 82, 1);
+    border-radius: 4px;
+}

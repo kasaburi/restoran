@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/register.css">
+    </head>
+    <body>
+        <h2>რეგისტრაცია</h2>
+        <form id="signupForm" novalidate>
+            <div class="row">
+                <div class="field">
+                    <label for="firstName">სახელი *</label>
+                    <input id="firstName" class="firstName" name="firstName" type="text" placeholder="name" required />
+                </div>
+                <div class="field">
+                    <label for="lastName">გვარი *</label>
+                    <input id="lastName"  class="lastName" name="lastName" type="text" placeholder="lastName" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="age">ასაკი *</label>
+                    <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
+                </div>
+                <div class="field">
+                    <label for="gender">სქესი *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" class="other">აირჩიე…</option>
+                        <option value="MALE" class="other">MALE</option>
+                        <option value="FEMALE" class="other">FEMALE</option>
+                        <option value="OTHER" class="other">OTHER</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" placeholder="@mail.com" required />
+            </div>
+            <div class="field1">
+                <label for="password">პაროლი</label>
+                <input type="password" id="password" name="password" required minlength="6">
+                <div class="showPassword">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword" >პაროლის ნახვა</label>
+                </div>
+            </div>
+            <div class="field">
+                <label for="address">მისამართი *</label>
+                <input id="address" name="address" type="text" placeholder="address" required />
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="phone">ტელეფონი</label>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+995599123456"
+                        pattern="^\+995\d{9}$"
+                        required />
+                </div>
+            </div>
+                <div class="field">
+                    <label for="zipcode">Zipcode (4 ციფრი) *</label>
+                    <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required />
+                </div>
+            </div>
+            <div class="field">
+                <label for="avatar">Avatar URL (DiceBear) *</label>
+                <input
+                    id="avatar"
+                    name="avatar"
+                    type="url"
+                    placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane"
+                    required />
+                <div class="actions avatar-preview">
+                    <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane">
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="primary">რეგისტრაცია</button>
+                <button type="reset" class="reset">გასუფთავება</button>
+            </div>
+        </form>
+        <div id="formError"></div>
+        <div id="formSuccess"></div>
+        <script src="./register.js"></script>
+    </body>
+</html>

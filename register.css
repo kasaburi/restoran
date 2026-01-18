@@ -1,0 +1,181 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: font;
+    color:  rgb(241, 239, 239);;
+ }
+
+
+@font-face{
+    font-family: font;
+    src: url(./googlefont/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    height: 280vh;
+    color: rgb(208, 206, 206);
+    text-align: center;
+}
+#avatarImg{
+    width: 10vw;
+    height: 7vh;
+}
+
+h2{
+    color: rgb(253, 252, 252);
+}
+
+#signupForm{
+    display: flex;
+    flex-direction: column;
+    height: 250vh;
+    width: 90vw;
+
+} 
+
+
+.showPassword{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 190px;
+    gap:5%;
+}
+
+
+#formSuccess{ 
+    display:none; 
+    color:green;
+
+
+}
+
+
+.field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 80px;
+}
+
+.firstName{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 4%;
+   
+}
+
+
+.lastName{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.age{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 4%;
+}
+
+#gender{
+       border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 4%;
+    color: grey;
+}
+
+.other{
+    color: grey;
+   background-color: rgba(126, 125, 125, 0.216);
+}
+
+#email{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 4%;
+    color: grey;
+}
+
+
+.field1{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  
+}
+
+#password{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+    color: grey;
+}
+
+#address{
+      border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+    color: grey; 
+}
+#phone{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+    color: grey; 
+}
+#zipcode{
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+    color: grey; 
+}
+
+#avatar{
+     border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+    color: grey;
+}
+
+.primary{
+    width: 100px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(1, 82, 1);
+    border-radius: 4px;
+    margin-top: 10%;
+}
+
+.reset{
+    width: 100px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    background-color:rgb(190, 3, 3) ;
+    border-radius: 4px;
+}
+
+#formError{
+    display: none;
+    width: 250px;
+    padding-top: 10%;
+    height: 100px;
+    font-size: 16px;
+    color: rgb(129, 3, 3);
+   font-weight: bolder;
+}

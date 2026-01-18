@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kitchen </title>
+    <meta name="description" content="Order delicious meals online from our restaurant kitchen. Fresh ingredients, fast delivery, and a variety of dishes.">
+    <meta name="keywords" content="restaurant, online food, delivery, pizza, burgers, healthy meals, kitchen, order online">
+    <meta name="author" content="Your Restaurant Name">
+    <link rel="icon" href="./photo/girl.png" type="image/png">
+    <meta property="og:title" content="Restaurant Kitchen – Order Fresh Food Online">
+    <meta property="og:description" content="Delicious meals delivered fast to your door.">
+    <meta property="og:image" content="https://yourwebsite.com/photo/cover.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Restaurant Kitchen – Order Fresh Food Online">
+    <meta name="twitter:description" content="Delicious meals delivered fast to your door.">
+    <meta name="twitter:image" content="https://yourwebsite.com/photo/cover.png">
+    <link rel="stylesheet" href="./restoran.css">
+    <script src="./restoran.js" defer></script>
+</head>
+    <body>
+        <header class="content">
+            <div class="kitoll">
+                <img src="./photo/oooo1.png" class="kit">
+                <div class="conteriner">    
+                    <nav id="mainNav">
+                        <div class="allregistracion">
+                            <button id="themeToggle">☀️ 🌑</button>
+                            <button id="registerBtn">register</button>
+                            <button id="authBtn">autho</button>
+                            <button id="closeBurger" class="closeBurger">❌</button>
+                        </div>
+                    </nav>
+                    <button id="burger" class="burger">☰</button>
+                    <div id="popupModal" class="modal">
+                        <div class="modal-content">
+                            <div id="popupContent"></div>
+                        </div>
+                    </div> 
+                    <div class="cart" onclick="openCart()" id="cartCount" ></div>
+                    <div id="cartModal"class="cart-modal" ><span onclick="closeCart()" class="close" >×</span>
+                        <div class="imgcart">
+                            <p class="cart1">Cart</p>
+                            <img src="./photo/kkkkkkk.png" class="cartimg">
+                        </div>
+                        <div id="cartItems"></div>
+                        <div class="title">
+                            <h3 id="cartTotal">Total: 0$</h3>
+                            <button onclick="clearCart()"  class="delete-all">Delete All</button>
+                            <button onclick="openCheckout()"  class="checkout" >Check Out</button>
+                        </div>
+                    </div>
+                    <div id="checkoutModal" class="modal">
+                        <div class="modal-content">
+                            <h2>Payment</h2>
+                            <p id="checkoutTotal"></p>
+                            <input placeholder="Card Number (demo)" class="number">
+                            <input placeholder="MM/YY" class="number">
+                            <input placeholder="CVC" class="number">
+                            <div>
+                                <button onclick="confirmPayment()" class="pay">Pay</button>
+                                <button onclick="closeCheckout()"  class="cancel">❌</button>
+                                <p id="paymentStatus"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rest">
+                <p class="fast" >Fast and efficient, online ordering you must try.</p>
+            </div>
+        </header>
+        <main>
+            <div class="all1">
+                <h1>Categories </h1>
+                <div><img src="./photo/kkkkkkk.png" class="kitchen"></div>
+            </div>
+            <section id="section"></section>
+            <div class="inbox">
+                <div id="filter">
+                    <h3>filter</h3>
+                    <label class="search">Search
+                        <input type="text" id="filterName" class="search1" placeholder="Search...">
+                    </label>
+                    <label class="vegetarian">Vegetarian
+                        <input type="checkbox" id="filterVegeterian" >
+                    </label>
+                    <label class="nuts">Nuts
+                        <input type="checkbox" id="filterNuts">
+                    </label>
+                    <label class="spices">Spiciness
+                        <select id="filterSpiciness">
+                            <option value="0">All</option>
+                            <option value="1">🌶️</option>
+                            <option value="2">🌶️🌶️</option>
+                            <option value="3">🌶️🌶️🌶️</option>
+                            <option value="4">🌶️🌶️🌶️🌶️</option>
+                            <option value="5">🌶️🌶️🌶️🌶️🌶️</option>
+                        </select>
+                    </label>
+                    <label class="minprice"> Min Price
+                        <input type="number" id="filterMinPrice" min="0"  placeholder="0" class="pricemin">
+                    </label>
+                    <label class="maxprice">Max Price
+                        <input type="number" id="filterMaxPrice" min="0"  placeholder="0"  class="pricemax">
+                    </label>
+                    <button id="removeFilters">Remove</button>
+                </div>
+                <div  id="food"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="step">
+                <p class="step1">© Step Ordering 2026, All rights reserved</p>
+            </div>
+        </footer>
+        <script src="./restoran.js"></script>
+    </body>
+</html>
