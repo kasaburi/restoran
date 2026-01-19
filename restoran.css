@@ -986,7 +986,7 @@ h1{
 }
 
 #closePopupBtn{
-    bottom: 50vh;
+    bottom: 55vh;
 }
 
 
@@ -1096,13 +1096,14 @@ h1{
 
 .modal-content{
     justify-items: center;
-    width: 80vw;
+    width: 50vw;
     min-height: 40vh;
+
 }
 
 
 .cancel{
-    right: 15%;
+    left: 70vw;
 }
 
 
@@ -1243,7 +1244,7 @@ h1{
 
 
 #closePopupBtn{
-    bottom: 52vh;
+    bottom: 54vh;
 }
 
 .img{
@@ -1254,10 +1255,6 @@ h1{
     min-height: 28vh;
 }
  
-
-
-
-
 
 
 
@@ -1481,37 +1478,9 @@ h1{
 
 
 .cancel{
-    right: 15%;
+    right: 10%;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1548,6 +1517,7 @@ h1{
 
 #section{
      min-height: 15vh;
+     gap: 2%;
      flex-wrap: wrap;
 }
 
@@ -1568,38 +1538,6 @@ h1{
    align-content: center;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1685,11 +1623,16 @@ h1{
 
 
 #closePopupBtn{
-    bottom: 52vh;
+    position: absolute;
+    bottom: 72vh;
+    right: 100px;
+   
 }
 
 
-
+main{
+    margin-left: 5px;
+}
 }
 
 

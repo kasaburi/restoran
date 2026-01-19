@@ -424,37 +424,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// function openCart() {
-//     const cartModal = document.getElementById("cartModal");
-
-//     if (!cartModal) {
-//         console.error("❌ cartModal element not found! Check your HTML id or script load order.");
-//         return;
-//     }
-
-//     const currentDisplay = window.getComputedStyle(cartModal).display;
-//     if (currentDisplay !== "none") {
-//         console.log("ℹ️ cartModal is already open.");
-//         return;
-//     }
-
-//     cartModal.style.display = "flex"; 
-//     console.log("✅ cartModal opened successfully.");
-//     loadCart().catch(err => console.error("❌ loadCart error:", err));
-// }
-
-// function closeCart() {
-//     const cartModal = document.getElementById("cartModal");
-
-//     if (!cartModal) {
-//         console.error("❌ cartModal element not found! Cannot close.");
-//         return;
-//     }
-
-//     cartModal.style.display = "none";
-//     console.log("ℹ️ cartModal closed.");
-// }
-
 
 
 function openCart() {
@@ -571,99 +540,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// function openCart() {
-//     const cartModal = document.getElementById("cartModal");
-//     if (!cartModal) return;
-
-//     cartModal.style.display = "flex";
-//     loadCart();
-// }
-
-// function openCart() {
-//     let cartModal = document.getElementById("cartModal");
-//     if (!cartModal) {
-//         console.error("cartModal not found in DOM");
-//         return;
-//     }
-//     cartModal.style.display = "flex";
-//     loadCart();
-// }
-
-
-// function openCheckout() {
-//     const cartTotal = document.getElementById("cartTotal").innerText;
-//     document.getElementById("checkoutTotal").innerText = cartTotal;
-//     if (!localStorage.getItem("isRegistered")) {
-//         openPopup("register.html");
-//         setPaymentStatus("❌ Please register to continue", "error");
-//         return;
-//     }
-
-//     checkoutModal.style.display = "flex";
-// }
-
-// function closeCheckout() {
-//     checkoutModal.style.display = "none";
-//     clearCheckoutInputs();
-//     setPaymentStatus("", "");
-// }
-// function confirmPayment() {
-//     if (!localStorage.getItem("isRegistered")) {
-//         setPaymentStatus("❌ You must register to pay", "error");
-//         return;
-//     }
-
-//     const inputs = checkoutModal.querySelectorAll("input");
-//     for (let input of inputs) {
-//         if (input.value.trim() === "") {
-//             setPaymentStatus("❌ Fill all card fields", "error");
-//             return;
-//         }
-//     }
-
-//     setPaymentStatus("⏳ Processing payment...", "loading");
-
-//     setTimeout(() => {
-//         const success = Math.random() > 0.3;
-
-//         if (success) {
-//             setPaymentStatus("✅ Payment successful!", "success");
-//             clearCart();
-//             setTimeout(closeCheckout, 1200);
-//         } else {
-//             setPaymentStatus("❌ Payment failed. Try again.", "error");
-//         }
-//     }, 1500);
-// }
-
-// function setPaymentStatus(text, type) {
-//     const status = document.getElementById("paymentStatus");
-//     status.innerText = text;
-
-//     status.style.color =
-//         type === "success" ? "green" :
-//         type === "error" ? "red" :
-//         type === "loading" ? "orange" : "";
-// }
-
-// function clearCheckoutInputs() {
-//     document
-//         .querySelectorAll("#checkoutModal input")
-//         .forEach(input => input.value = "");
-// }
-
-// window.addEventListener("message", (event) => {
-//     const data = event.data;
-
-//     if (data.type === "loginSuccess") {
-//         localStorage.setItem("isRegistered", "true");
-//         localStorage.setItem("userEmail", data.userEmail || "");
-//         localStorage.setItem("userToken", data.token || "");
-
-//         closePopup();
-//     }
-// });
-
 
 const registerBtn = document.getElementById("registerBtn");
 const authBtn = document.getElementById("authBtn");
@@ -689,7 +565,7 @@ if (authBtn) {
 
 function openPopup(url) {
     popupContent.innerHTML = `
-        <iframe src="${url}" style="width:100%;height:400px;border:none;"></iframe>
+        <iframe src="${url}"  style="width:100%;height:400px;border:none;"></iframe>
         <button id="closePopupBtn">❌</button>
     `;
     popupModal.style.display = "flex";
