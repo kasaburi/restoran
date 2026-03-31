@@ -7,54 +7,39 @@
         <link rel="stylesheet" href="/register.css">
     </head>
     <body>
-        <h2>რეგისტრაცია</h2>
+        <h2>Registration</h2>
         <form id="signupForm" novalidate>
             <div class="row">
                 <div class="field">
-                    <label for="firstName">სახელი *</label>
+                    <label for="firstName"> firstName *</label>
                     <input id="firstName" class="firstName" name="firstName" type="text" placeholder="name" required />
                 </div>
-                <div class="field">
-                    <label for="lastName">გვარი *</label>
+                <div class="field1">
+                    <label for="lastName">lastName *</label>
                     <input id="lastName"  class="lastName" name="lastName" type="text" placeholder="lastName" required />
                 </div>
-            </div>
-            <div class="row">
-                <div class="field">
-                    <label for="age">ასაკი *</label>
-                    <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
+                <div class="field2">
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" placeholder="@mail.com" required />
                 </div>
-                <div class="field">
-                    <label for="gender">სქესი *</label>
-                    <select id="gender" name="gender" required>
-                        <option value="" class="other">აირჩიე…</option>
-                        <option value="MALE" class="other">MALE</option>
-                        <option value="FEMALE" class="other">FEMALE</option>
-                        <option value="OTHER" class="other">OTHER</option>
-                    </select>
+                <div class="field3">
+                    <div class="boxpas">
+                        <label for="password">password *</label>
+                        <input type="password" id="password" name="password" required minlength="6" placeholder="******" >
+                    </div>
+                    <div class="showPassword">
+                        <input type="checkbox" id="showPassword">
+                        <label for="showPassword" >show Password</label>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label for="email">Email *</label>
-                <input id="email" name="email" type="email" placeholder="@mail.com" required />
-            </div>
-            <div class="field1">
-                <label for="password">პაროლი</label>
-                <input type="password" id="password" name="password" required minlength="6">
-                <div class="showPassword">
-                    <input type="checkbox" id="showPassword">
-                    <label for="showPassword" >პაროლის ნახვა</label>
+                <div class="field4">
+                    <label for="address">address *</label>
+                    <input id="address" name="address" type="text" placeholder="address" required />
                 </div>
-            </div>
-            <div class="field">
-                <label for="address">მისამართი *</label>
-                <input id="address" name="address" type="text" placeholder="address" required />
-            </div>
-            <div class="row">
-                <div class="field">
-                    <label for="phone">ტელეფონი</label>
+                <div class="field5">
+                    <label for="phone">phone *</label>
                     <input
-                        id="phone"
+                         id="phone"
                         name="phone"
                         type="tel"
                         placeholder="+995599123456"
@@ -62,26 +47,35 @@
                         required />
                 </div>
             </div>
-                <div class="field">
-                    <label for="zipcode">Zipcode (4 ციფრი) *</label>
-                    <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required />
+            <div class="field6">
+                <div class="box">
+                    <label for="age">age *</label>
+                    <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
                 </div>
-            </div>
-            <div class="field">
-                <label for="avatar">Avatar URL (DiceBear) *</label>
-                <input
-                    id="avatar"
-                    name="avatar"
-                    type="url"
-                    placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane"
-                    required />
-                <div class="actions avatar-preview">
-                    <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane">
+                <div class="box1">
+                    <label for="gender">gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" class="other">choose…</option>
+                        <option value="MALE" class="other">MALE</option>
+                        <option value="FEMALE" class="other">FEMALE</option>
+                        <option value="OTHER" class="other">OTHER</option>
+                    </select>
+                </div>
+                <div class="box2">
+                    <label for="zipcode">Zipcode *</label>
+                    <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required >
+                </div>
+                <div class="box3">
+                    <label for="avatar" class="url">Avatar URL *</label>
+                    <div class="avatar1">
+                         <input id="avatar" name="avatar" type="url" placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane" required />
+                        <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane">
+                    </div>
                 </div>
             </div>
             <div class="actions">
-                <button type="submit" class="primary">რეგისტრაცია</button>
-                <button type="reset" class="reset">გასუფთავება</button>
+                <button type="submit" class="primary">Registration</button>
+                <button type="reset" class="reset">clear</button>
             </div>
         </form>
         <div id="formError"></div>

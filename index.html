@@ -18,7 +18,6 @@
     <meta name="twitter:description" content="Delicious meals delivered fast to your door.">
     <meta name="twitter:image" content="https://yourwebsite.com/photo/cover.png">
     <link rel="stylesheet" href="./restoran.css">
-    <script src="./restoran.js" defer></script>
 </head>
     <body>
         <header class="content">
@@ -47,18 +46,21 @@
                         </div>
                         <div id="cartItems"></div>
                         <div class="title">
-                            <h3 id="cartTotal">Total: 0$</h3>
+                            <h3 id="cartTotal">Total:0$</h3>
                             <button onclick="clearCart()"  class="delete-all">Delete All</button>
                             <button onclick="openCheckout()"  class="checkout" >Check Out</button>
                         </div>
                     </div>
                     <div id="checkoutModal" class="modal">
-                        <div class="modal-content">
+                        <div class="modal-content1">
                             <h2>Payment</h2>
                             <p id="checkoutTotal"></p>
                             <input placeholder="Card Number (demo)" class="number">
-                            <input placeholder="MM/YY" class="number">
-                            <input placeholder="CVC" class="number">
+                            <div class="cvc1">
+                                <input placeholder="MM/YY" class="cvc">
+                                <input placeholder="CVC" class="cvc">
+                            </div>
+                            
                             <div>
                                 <button onclick="confirmPayment()" class="pay">Pay</button>
                                 <button onclick="closeCheckout()"  class="cancel">❌</button>
@@ -109,7 +111,11 @@
                     </label>
                     <button id="removeFilters">Remove</button>
                 </div>
-                <div  id="food"></div>
+                <div class="foodconteiner">
+                    <div  id="food"></div>
+                    <div id="pagination"></div>
+                </div>
+                
             </div>
         </main>
         <footer>

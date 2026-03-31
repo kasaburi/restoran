@@ -21,6 +21,13 @@
 
 
 }
+
+#checkoutTotal{
+    width: 100%;
+    text-align: center;
+}
+
+
 .restoran{
     color: white;
     width: 20%;
@@ -29,7 +36,40 @@
 }
 
 h2{
-    color: black;
+    text-align: center;
+    height: 7vh;
+    color: white;
+    width: 100%;
+}
+
+
+
+
+.popup-box {
+    position: fixed;
+    bottom:  5px;
+    border-radius: 12px;
+   background:   linear-gradient(to right, #020202, #675403);
+
+}
+
+.popup-box iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-box.register {
+    width: 52vw;
+    height: 90vh;
+      
+}
+
+
+.popup-box.auth {
+    width: 25vw;
+    height: 70vh;
+
 }
 
 
@@ -64,17 +104,6 @@ h2{
         opacity: 0;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -179,6 +208,7 @@ h2{
     left: 20px; 
     top: 8px; 
     font-size: 14px;
+   
   
 }
 
@@ -296,14 +326,16 @@ section{
     justify-content: center;
     gap:15%;
     width: 100%;
-    height: 10vh;
+    height: 12vh;
+   
 }
 .search1{
-    width: 70%;
-    height: 25px;
+    width: 200px;
+    height: 70px;
     margin-top: 7px;
     text-align: center;
     border: 1px solid rgb(209, 208, 208);
+     border-radius: 2px;
 }
 .search1:hover{
       border: 1px solid rgb(92, 89, 89);
@@ -342,8 +374,10 @@ section{
 #filterSpiciness{
     text-align: center;
     border: 1px solid rgb(209, 208, 208);
-    width: 40px;
+    width: 60px;
+    font-size: 12px;
     color: red;
+    border-radius: 2px;
 }
 
 .minprice{
@@ -363,6 +397,8 @@ section{
     width: 40px;
      border: 1px solid rgb(209, 208, 208);
     text-align: center;
+       font-size: 12px;
+    border-radius: 2px;
 }
 
 .maxprice{
@@ -380,11 +416,13 @@ section{
      width: 40px;
      border: 1px solid rgb(209, 208, 208);
     text-align: center;
+       font-size: 12px;
+    border-radius: 2px;
 }
 #removeFilters{
     background-color: rgb(169, 22, 22);
-    width: 7vw;
-    height: 4vh;
+    width: 140px;
+    height: 35px;
     border-radius: 6px;
     border: none;
 
@@ -394,25 +432,60 @@ section{
    background-color: rgb(175, 5, 5);
 }
 
+button.active {
+  background: black;
+  color: white;
+}
+
+
+
+.foodconteiner{
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.product {
+  padding: 10px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+#pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+
+
+
+
+
+
 #food {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px)); /* არ იჭრება 300px-ს მეტით */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-template-rows: auto;
     gap: 40px;
-    width: 80%;
-    height: auto;
+    width: 80vw;
+    max-height: 160vh;
+
     justify-content: center; 
    
 }
-
 
  .card{
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 20vw;
+    width: 300px; 
     height: auto;
-    max-height: 60vh;
+    max-height: 70vh;
     background-image: url("./photo/yelowtwlouw.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -420,10 +493,10 @@ section{
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #000;
-
+   
 
 }
-
+ 
 
 
 .card:hover {
@@ -439,13 +512,15 @@ section{
 
 .img{
     width: 100%;
-    height: 33vh;
+    height: 35vh;
+
 }
 .imgall{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 38vh;
+    height: 40vh;
+
 }
 
 .itemall{
@@ -453,11 +528,13 @@ section{
     flex-direction: column;
     align-items: center;
     height: 14vh;
+  
 }
 
 p{
     padding-bottom: 2%;
 }
+
 .card1{
     display: flex;
     gap:15%;
@@ -465,14 +542,7 @@ p{
     width: 100%;
     height: 5vh;
    
-}
-
-.price{
-    color: red;
-    font-size: 15px;
-    font-weight: bold;
-
-}
+} 
 
 
 
@@ -482,24 +552,54 @@ p{
     gap:14%;
     width: 18vw;
     height: 6vh;
-   
+
 }
+
 
 
 .name{
-       width: 15vw;
-       font-size: 18px;
+    position: relative;
+    top:20px;
+    text-align: center;
+    padding-left: 20px;
+    width: 100px;
+    min-height: 5vh;
+    font-size: 18px;
+
 
 }
+ 
+
+.group1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    width: 90%;
+
+} 
+
+.price{
+    color: red;
+    font-size: 16px;
+    width: 100px;
+    font-weight: bold;
+
+}
+
+
+
 
 .cart-item{
     font-size: 17px;
+    min-height: 25vh;
 
 }
 .remove1{
-    width: 100px;
+    width: 110px;
     border-radius: 3px;
-    height: 25px;
+    height: 30px;
     border:none;
     background-color: rgb(169, 22, 22);
 }
@@ -526,13 +626,16 @@ p{
     color: red;
 }
 
+
  .button1{
-    width: 8vw;
+    width: 130px;
     border: none;
     background-color: rgb(2, 102, 2);
     height: 5vh;
     border-radius: 5px;
 }
+
+
 
 .button1:hover{
     background-color:  rgb(1, 82, 1);
@@ -568,6 +671,7 @@ p{
 
 .title{
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
   #cartModal {
@@ -579,6 +683,8 @@ p{
     background: rgba(0, 0, 0, 0.992); 
       display: none;             
    z-index: 3;
+
+
 }  
 
 
@@ -586,7 +692,6 @@ p{
 
 
 .cart-content {
-    background: white;
     padding: 20px;
     border-radius: 10px;
     width: 400px;
@@ -604,6 +709,7 @@ p{
     align-items: center;
     z-index: 10000;
 
+
 }
 
 #popupModal[style*="display: flex"] {
@@ -612,15 +718,6 @@ p{
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -650,9 +747,9 @@ p{
 
 
 .delete-all{
-    width: 100px;
+    width: 180px;
     border-radius: 3px;
-    height: 25px;
+    height: 45px;
     border:none;
     background-color: rgb(169, 22, 22);
 }
@@ -664,9 +761,9 @@ p{
 
 
 .checkout{
-    width: 100px;
+    width: 180px;
     border-radius: 3px;
-    height: 25px;
+    height: 45px;
     border:none;
     background-color: rgb(2, 102, 2);
 }
@@ -724,23 +821,25 @@ p{
 }
 
 
-#closePopupBtn{
+.popup-box {
     position: relative;
-    left: 80%;
-    bottom:57vh;
-    font-size: 22px;
-    color: rgb(235, 6, 6);
-   background: none;
-   border: none;
-   
-
-    
+ 
 }
-#closePopupBtn:hover{
-    color:  rgb(177, 2, 2);
 
+#closePopupBtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 9;
 
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
 }
+
 
 
 
@@ -769,11 +868,12 @@ p{
 
 .cancel{
     position:absolute;
-    top: 30%;
-    font-size: 20px;
-    right: 40%;
+    top: 23%;
+    font-size: 24px;
+    right: 38%;
     border: none;
     background: none;
+ 
 }
 
 .modal {
@@ -786,15 +886,21 @@ p{
     z-index: 6;
    
 }
-
-.modal-content {
-    background: #fff;
+ .modal-content1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:2%;
+    background:none;
     padding: 20px;
-    width: 300px;
+    width: 25vw;
+    height: 55vh;
     border-radius: 8px;
-     background: linear-gradient(to right, #0202028a, #edca2d83);
+    background:   linear-gradient(to right, #020202, #675403);
 
-}
+} 
+
 :root {
   --bg-color: #fff;
   --text-color: #000;
@@ -806,12 +912,6 @@ body {
   color: var(--text-color);
 }
 
-.modal-content {
-  background-color: var(--modal-bg);
-  color: var(--text-color);
-  padding: 20px;
-  border-radius: 8px;
-}
 
 body.dark {
   --bg-color: #1a1a1a;
@@ -837,14 +937,17 @@ body.dark {
     gap: 3%;
     justify-content:flex-end;
     align-items: flex-end;
-    width: 30vw;
-    height: 10vh;
+    width: 45vw;
+    min-height: 10vh;
+
 }
 
 #registerBtn{
     background-color: rgb(2, 102, 2);
-    width: 8vw;
-    height: 4vh;
+    width: 12vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
 
 }
 
@@ -857,8 +960,10 @@ body.dark {
 
 #authBtn{
     background-color: rgb(2, 102, 2);
-    width: 8vw;
-    height: 4vh;
+    width: 12vw;
+    height: 6vh;
+    border: none;
+    border-radius: 5px;
 }
 
 #authBtn:hover{
@@ -869,13 +974,25 @@ body.dark {
 .number{
      border: 1px solid rgb(209, 208, 208);
      text-align: center;
+     width: 17vw;
+     height: 5vh;
 }
+.cvc{
+     border: 1px solid rgb(209, 208, 208);
+     text-align: center;
+     width: 8vw;
+     height: 5vh;
+}
+
+
 .pay{
     background-color: rgb(2, 102, 2);
-    width: 90px;
-    height: 35px;
+    width: 16vw;
+    height: 7vh;
+    border-radius: 5px;
     font-size: 15px;
     border: none;
+  
 }
 
 .pay:hover{
@@ -885,12 +1002,16 @@ body.dark {
 
 #paymentStatus{
     font-size: 16px;
+    margin-top: 15px;
+
 }
 
 
 
 h3{
     color: white;
+
+
 }
 
 
@@ -912,9 +1033,11 @@ h3{
 #mainNav .allregistracion {
     display: flex;
     gap: 10px;
+  
+    
 }
 
-/* ბურგერი დამალული */
+
 #burger {
     display: none;
     font-size: 24px;
@@ -922,10 +1045,6 @@ h3{
     border: none;
     cursor: pointer;
 }
-
-
-
-
 
 
 
@@ -944,7 +1063,15 @@ h1{
 
 
 
+    .imgall{
+        border: 2px solid red;
+        max-height: 30vh;
+    }
 
+    .img{
+        width: 100%;
+        max-height: 25vh;
+    }
 
 #section{
     flex-wrap: wrap;
@@ -955,14 +1082,23 @@ h1{
     
 }
 
+#cartModal{
+   width: 100%;
+    left: 0px;
+   position: absolute; 
+
+  
+}
+
+
 
 #filter{
     width: 30vw;
+    min-height: 30vh;
+
 }
 
-#food{
-    width: 70%;
-}
+
 .search1{
     min-height: 5vh;
 }
@@ -972,9 +1108,17 @@ h1{
 }
 
 .card{
-    width: 24vw;
+    width: 300px;
 }
 
+
+#food{
+    gap:30px;
+    max-height: 220vh;
+    height: auto;
+    width: 70vw;
+
+}
 .name{
    
     width: 20vw;
@@ -987,14 +1131,51 @@ h1{
 
 #closePopupBtn{
     bottom: 55vh;
-}
-
 
 }
 
+.cart-item{
+    width: 50vw;
+    min-height: 20vh;
+
+}
+.itemname{
+    width: 50vw;
+}
+
+.priceall{
+    width: 35vw;
+}
+
+
+.many{
+    width: 30vw;
+}
+
+
+.remove1{
+    width: 100px;
+    min-height: 30px;
+    font-size: 12px;
+}
 
 
 
+  #cartModal {
+    width: 60vw;
+    left: 40%;
+
+
+
+}  
+
+
+.popup-box.auth{
+    width: 40vw;
+}
+
+}
+ 
 
 
 
@@ -1007,6 +1188,7 @@ h1{
 @media screen  and (min-width: 501px) and (max-width: 1000px){
 
 
+
   header {
         max-width: 100%;
         max-height: 25vh;
@@ -1016,8 +1198,8 @@ h1{
 
     .kitoll {
         align-items: center;
-        justify-content: space-around;
-        width: 90vw;
+        justify-content: flex-start;
+        width: 93vw;
         max-height: 20vh;
 
     }
@@ -1025,240 +1207,311 @@ h1{
 
 
     .kit {
-        width: 26vw;
+        width: 16vw;
         object-fit: contain;
+        height: auto;
+
+    }
+
+
+    #registerBtn{
+        width: 200px;
+    }
+    #authBtn{
+        width: 200px;
+    }
+
+    .allregistracion{
+        align-items: center;
+        flex-direction: row;
+        width: 53vw;
+        
+    }
+
+
+
+
+    .conteriner{
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    max-height: 10vh;
+
+    }
+
+
+    .cart{
+        max-width: 13vw;
+    }
+
+
+
+    .imgcart{
+        width: 40vw;
+    }
+
+
+    .rest{
+        display: flex;
+    justify-content: center;
+        min-height: 10vh;
+        width: 95vw;
+    }
+
+    .fast{
+        font-size: 18px;
+        
+    }
+
+
+
+
+    #cartModal{
+        width: 100%;
+        left: 0px;
+        position: absolute; 
+    
+    }
+
+
+    .many{
+    
+        width: 22vw;
+    }
+
+    .modal-content{
+        justify-items: center;
+        width: 50vw;
+        min-height: 40vh;
+
+    }
+
+
+    .cancel{
+        left: 70vw;
+    }
+
+
+
+    .all1{
+        width: 80vw;
+    
+    }
+
+    .kitchen{
+        width: 8vw;
+    
+    }
+
+    #section{
+        min-height: 15vh;
+        flex-wrap: wrap;
+        gap:3%;
+
+    }
+
+
+    h1{
+
+        width: 50vw;
+    }
+    .category1{
+        font-size: 16px;
+    
+    }
+    .inbox{
+        flex-direction: column;
+
+    }
+
+    #filter{
+        width: 96vw;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-height: 30vh;
+    padding-bottom: 40px;
+
+
+    }
+
+
+    .search{
+        max-height: 4vh;
+        margin: 16px;
+    
+    }
+
+    .search1{
+        width: 40vw;
+        min-height: 5vh;
+    }
+
+
+    .vegetarian{
+        font-size: 14px;
+        width: 30vw;
+    }
+    .nuts{
+        font-size: 14px;
+        width: 17vw;
+    }
+
+    .spices{
+        font-size: 14px;
+        width: 28vw;
+    }
+    #filterSpiciness{
+        width: 14vw;
+    }
+
+    .minprice{
+        font-size: 14px;
+        width: 28vw;
+    }
+    .maxprice{
+    font-size: 14px;
+        width: 28vw;
+
+    }
+
+
+    #removeFilters{
+        width: 20vw;
+    }
+
+
+    #food{
+        width: 95vw;
+        max-height: 420vh;
+        height: auto;
+
+    }
+    .card{
+        width: 100%;
         height: auto;
     }
 
 
-#registerBtn{
-    width: 25vw;
-}
-#authBtn{
-    width: 25vw;
-}
-
-.allregistracion{
-    align-items: center;
-    flex-direction: row;
-    width: 40vw;
+    .name{
     
-}
+        width: 60vw;
+    }
 
-.conteriner{
-    display: flex;
-    justify-content: space-between;
-   width: 60vw;
-   max-height: 10vh;
 
-}
+    .itemall{
+        width: 90%;
+    }
+    .item{
+        width: 100%;
+    }
 
+    .button1{
+        width: 140px;
+    }
+    .step1{
+        font-size: 16px;
+        width: 90vw;
+    }
 
 
-.cart{
-    max-width: 13vw;
-}
+    #closePopupBtn{
+        bottom: 54vh;
+    }
 
+      .imgall{
+        max-height: 30vh;
+    }
 
+    .img{
+        width: 100%;
+        max-height: 25vh;
+    }
 
-.imgcart{
-    width: 40vw;
-}
+    .popup-box.register {
+        width: 80vw;
+        min-height: 100vh;
+        
+    }
 
+    .popup-box.auth {
+    width: 370px;
 
-.rest{
-    display: flex;
-   justify-content: center;
-    min-height: 10vh;
-    width: 95vw;
-}
+    }
 
-.fast{
-    font-size: 18px;
-    
-}
 
 
+    .modal-content1{
 
+        width: 270px;
+    }
 
-#cartModal{
-   width: 100%;
-    left: 0px;
-   position: absolute; 
-  
-}
 
+    .pay{
+        width: 200px;
+    }
 
-.many{
-  
-    width: 22vw;
-}
 
-.modal-content{
-    justify-items: center;
-    width: 50vw;
-    min-height: 40vh;
 
-}
 
+    .cancel{
+        left: 1px;
+        top:120px;
+        font-size: 18px;
+        
 
-.cancel{
-    left: 70vw;
-}
+    }
 
 
+    .cvc1{
+        display: flex;
+        justify-items: center;
+        justify-content: space-between;
+        width: 60vw;
+    }
+    .cvc{
+        width: 80px;
+    }
 
-.all1{
-    width: 80vw;
-  
-}
+    .number{
+        width: 60vw;
+        min-height: 4vh;
+        
+    }
 
-.kitchen{
-    width: 8vw;
-  
-}
 
-#section{
-     min-height: 15vh;
-     flex-wrap: wrap;
-     gap:3%;
+    .cart-item{
+        width: 65vw;
+        min-height: 20vh;
+    }
+    .itemname{
+        width: 50vw;
+    }
+    .priceall{
+        width: 35vw;
+    }
 
-}
+    .many{
+        width: 35vw;
+    }
 
 
+    .remove1{
+        width: 100px;
+        min-height: 30px;
+        font-size: 12px;
+    }
 
-main{
-    padding-left: 10px;
-}
 
-h1{
 
-    width: 50vw;
-}
-.category1{
-     font-size: 16px;
-   
-}
-.inbox{
-    flex-direction: column;
-}
 
-#filter{
-    width: 96vw;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-height: 30vh;
-   padding-bottom: 40px;
-    margin-bottom: 5%;
+    #cartModal {
+        width: 80vw;
+        left: 19%;
 
-}
 
 
- 
-
-
-
-
-
-.search{
-    max-height: 4vh;
-    margin: 16px;
-   
-}
-
-.search1{
-    width: 40vw;
-    min-height: 5vh;
-}
-
-
-.vegetarian{
-    font-size: 14px;
-    width: 30vw;
-}
-.nuts{
-      font-size: 14px;
-    width: 17vw;
-}
-
-.spices{
-      font-size: 14px;
-    width: 28vw;
-}
-#filterSpiciness{
-    width: 14vw;
-}
-
-.minprice{
-     font-size: 14px;
-    width: 28vw;
-}
-.maxprice{
-   font-size: 14px;
-    width: 28vw;
-
-}
-
-
-#removeFilters{
-    width: 20vw;
-}
-
-
-
-
-
-
-#food{
-    width: 95vw;
-
-}
-.card{
-    width: 100%;
-    height: auto;
-}
-
-
-.name{
-   
-    width: 60vw;
-}
-
-
-.itemall{
-     width: 90%;
-}
-.item{
-    width: 100%;
-}
-
-.button1{
-    width: 20vw;
-}
-.step1{
-    font-size: 16px;
-    width: 90vw;
-}
-
-
-
-
-#closePopupBtn{
-    bottom: 54vh;
-}
-
-.img{
-    width: 80%;
-    height: auto;
-}
-.imgall{
-    min-height: 28vh;
-}
- 
-
-
-
-
+    }  
 
 
 
@@ -1274,16 +1527,16 @@ h1{
 
     header {
         max-width: 100%;
-        max-height: 20vh;
+        max-height: 25vh;
         gap:5%;
      
     }
 
     .kitoll {
-        align-content: space-between;
+        align-items: flex-end;
         justify-content: space-around;
         width: 90vw;
-        max-height: 10vh;
+        max-height: 15vh;
 
     }
 
@@ -1303,19 +1556,20 @@ h1{
         position: absolute;
         align-content: center;
         top: 0px; 
-        left: 60%;
-        width: 40vw;
-        gap:8%;
-        min-height: 23vh;
+        left: 38%;
+        width: 60vw;
+        gap:4%;
+        min-height: 35vh;
         background: #fff;
         border: 1px solid #ccc;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         z-index:3;
-    }
+       
+    } 
 
     #burger {
         display: block;
-        padding-top: 10px;
+        padding-top: 5px;
         color: white;
         font-size: 40px;
     }
@@ -1343,9 +1597,10 @@ h1{
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
-    justify-content: space-between;
-   width: 50vw;
-   max-height: 10vh;
+    justify-content: center;
+    width: 50vw;
+    max-height: 10vh;
+
 
 }
 
@@ -1356,283 +1611,366 @@ h1{
     #closeBurger {
         display: block;
         position: absolute;
-        bottom:70%;
-        left: 60%;
+        bottom:76%;
+        left: 64%;
         font-size: 20px;
     }
 
-#themeToggle{
-    flex-direction: row;
-    align-items: flex-end;
-    width: 25vw;
-    min-height: 8vh;
-}
+    #themeToggle{
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        min-height: 6vh;
 
-#registerBtn{
-    width: 25vw;
-}
-#authBtn{
-    width: 25vw;
-}
+    }
 
-.allregistracion{
-    align-items: center;
-    justify-content:space-evenly;
+    #registerBtn{
+        width: 150px;
+
+    }
+    #authBtn{
+        width: 150px;
+    }
+
+    .allregistracion{
+        align-items: center;
+        justify-content:space-evenly;
+
+    } 
+
+    .imgall{
+        max-height: 30vh;
+    }
+
+    .img{
+        width: 100%;
+        max-height: 25vh;
+    }
+
+    h1{
+        font-size: 22px;
+        width: 50vw;
+        max-height: 4vh;
+    }
+    .all1{
+        width: 90vw;
+        min-height: 12vh;
+
+
+    }
+
+
+
+
+    .cart{
+        max-width: 13vw;
+    }
+
+
+
+    .imgcart{
+        width: 40vw;
+    }
+
+
+    .rest{
+        display: flex;
+    justify-content: center;
+        max-height: 14vh;
+        width: 95vw;
     
-}
+    }
+
+    .fast{
+        font-size: 16px;
+    }
 
 
 
 
-
-.number{
-    width: 60vw;
-    min-height: 4vh;
-
-}
-
-
-
-h1{
-    font-size: 22px;
-    width: 50vw;
-    max-height: 4vh;
-}
-.all1{
-    width: 90vw;
-    max-height: 8vh;
+    #cartModal{
+        width: 100%;
+        left: 0px;
+        position: absolute; 
+        
+    }
 
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.cart{
-    max-width: 13vw;
-}
-
-
-
-.imgcart{
-    width: 40vw;
-}
-
-
-.rest{
-    display: flex;
-   justify-content: center;
-    max-height: 14vh;
-    width: 95vw;
-   
-}
-
-.fast{
-    font-size: 16px;
-}
-
-
-
-
-#cartModal{
-   width: 100%;
-    left: 0px;
-   position: absolute; 
-  
-}
-
-
-.many{
-  
-    width: 22vw;
-}
-
-.modal-content{
-    justify-items: center;
-    width: 80vw;
-    min-height: 40vh;
-}
-
-
-.cancel{
-    right: 10%;
-
-}
-
-
-
-.number{
-    width: 60vw;
-    min-height: 4vh;
+    .many{
     
-}
+        width: 22vw;
+    }
+
+    .modal-content{
+        justify-items: center;
+        width: 80vw;
+        min-height: 60vh;
+    
+    }
+
+
+    .cancel{
+
+            left: 68%;
+            top:120px;
+            font-size: 18px;
+    
+
+    }
+
+
+    .cvc1{
+        display: flex;
+        justify-items: center;
+        justify-content: space-between;
+        width: 60vw;
+    }
+    .cvc{
+        width: 80px;
+    }
+
+    .number{
+        width: 60vw;
+        min-height: 4vh;
+        
+    }
 
 
 
-h1{
-    font-size: 22px;
-    width: 50vw;
-    max-height: 4vh;
-}
-.all1{
-    width: 90vw;
-    max-height: 8vh;
+    h1{
+        font-size: 22px;
+        width: 50vw;
+        max-height: 4vh;
+    }
+    .all1{
+        width: 90vw;
+        max-height: 8vh;
 
 
-}
-
-
-
+    }
 
 
 
+    .kitchen{
+        width: 8vw;
+    
+    }
 
-.kitchen{
-    width: 8vw;
-  
-}
+    #section{
+        width: 90%;
+        min-height: 15vh;
+        padding: 8px;
+        gap: 2%;
+        flex-wrap: wrap;
 
-#section{
-     min-height: 15vh;
-     gap: 2%;
-     flex-wrap: wrap;
-}
-
-
-.category1{
-     font-size: 14px;
-   
-}
-.inbox{
-    flex-direction: column;
-}
-
-#filter{
-    width: 96vw;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-height: 35vh;
-   align-content: center;
-
-}
+    }
 
 
+    .category1{
+        font-size: 14px;
+    
+    }
+    .inbox{
+        flex-direction: column;
+    }
 
-.search{
-    max-height: 4vh;
-    margin: 12px;
-}
+    #filter{
+        width: 95vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-height: 50vh;
+    justify-content: center;
+    
 
-.search1{
-    width: 70vw;
-    min-height: 5vh;
-}
+    }
 
 
-.vegetarian{
+
+    .search{
+        max-height: 4vh;
+        margin: 12px;
+    }
+
+    .search1{
+        width: 70vw;
+        min-height: 5vh;
+    }
+
+
+    .vegetarian{
+        font-size: 14px;
+        width: 30vw;
+    
+    }
+
+    .nuts{
+        font-size: 14px;
+        width: 28vw;
+
+    }
+
+    .spices{
+        flex-direction: column;
+        font-size: 14px;
+        min-width: 28vw;
+        min-height: 10vh;
+
+    }
+
+    #filterSpiciness{
+        width: 20vw;
+    }
+
+    .minprice{
+        flex-direction: column;
+        font-size: 14px;
+        min-width: 27vw;
+        min-height: 10vh;
+
+    }
+    .maxprice{
+        flex-direction: column;
     font-size: 14px;
-    width: 30vw;
-}
-.nuts{
-      font-size: 14px;
-    width: 17vw;
-}
+        min-width: 27vw;
 
-.spices{
-      font-size: 14px;
-    width: 28vw;
-}
-#filterSpiciness{
-    width: 14vw;
-}
-
-.minprice{
-     font-size: 14px;
-    width: 28vw;
-}
-.maxprice{
-   font-size: 14px;
-    width: 28vw;
-
-}
+    }
 
 
-#removeFilters{
-    width: 20vw;
-}
+    #removeFilters{
+        width: 150px;
+        min-height: 40px;
+    }
+
+
+    #food{
+        width: 90vw;
+        max-height: 440vh;
+        margin: 0;
+
+    }
+    .card{
+        width: 100%;
+    }
 
 
 
+    .nameall{
+        width: 100%;
+        margin-left: 30px;
+    }
+
+
+    .name{
+    max-height: 30px;
+        width: 170px;
+    }
+
+
+    .itemall{
+        width: 90%;
+    }
+    .item{
+        width: 100%;
+    }
+
+    .button1{
+        width: 150px;
+        margin-bottom: 10px;
+    }
+    .step1{
+        font-size: 16px;
+        width: 90vw;
+    }
 
 
 
-#food{
+
+    #closePopupBtn{
+        position: absolute;
+        right: 17px;
+        top: 5px;
+
+    }
+
+
+
+    .popup-box.register {
+        width: 95vw;
+        min-height: 100vh;
+        
+    }
+
+    .popup-box.auth {
     width: 95vw;
-
-}
-.card{
-    width: 100%;
-}
+    max-height: 65vh;
 
 
-.name{
-   
-    width: 60vw;
-}
+    }
 
 
-.itemall{
-     width: 90%;
-}
-.item{
-    width: 100%;
-}
+    .modal-content1{
+        width: 240px;
+    }
 
-.button1{
-    width: 40vw;
-}
-.step1{
-    font-size: 16px;
-    width: 90vw;
-}
+
+    .foodconteiner{
+        margin: 0;
+        align-items: center;
+    }
 
 
 
 
-#closePopupBtn{
-    position: absolute;
-    bottom: 72vh;
-    right: 100px;
-   
-}
+
+    .pay{
+        width: 200px;
+    }
 
 
-main{
-    margin-left: 5px;
-}
+    .oll{
+        min-height:25vh;
+    }
+
+    .cart-item{
+        width: 90vw;
+        min-height: 30vh;
+    }
+    .itemname{
+        width: 40vw;
+
+    }
+
+    .priceall{
+        width: 45vw;
+    }
+
+    .many{
+        width: 45vw;
+    }
+
+    .remove1{
+        width: 100px;
+        min-height: 30px;
+        font-size: 12px;
+    }
+    h3{
+        text-align: center;
+        font-size: 24px;
+
+    }
+
+
+    .delete-all{
+        width: 120px;
+
+    }
+
+    .checkout{
+        width: 120px;
+
+    
+    }
+
 }
 
 

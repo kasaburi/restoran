@@ -19,7 +19,7 @@ let food = document.getElementById("food");
 let filter = document.getElementById("filter");
 let currentCategory = null;
 let productsData = [];
-
+let pagination = document.getElementById("pagination");
 document.getElementById("removeFilters").addEventListener("click", () => {
     document.getElementById("filterName").value = "";
     document.getElementById("filterVegeterian").checked = false;
@@ -31,6 +31,52 @@ document.getElementById("removeFilters").addEventListener("click", () => {
 
     renderProducts(productsData);
 });
+
+
+
+
+
+
+
+let products = [
+];
+
+let itemsPerPage = 6;
+let currentPage = 1;
+
+
+
+
+
+
+
+function setupPagination(data) {
+  pagination.innerHTML = "";
+
+  let pageCount = Math.ceil(data.length / itemsPerPage);
+
+  for (let i = 1; i <= pageCount; i++) {
+    let btn = document.createElement("button");
+    btn.innerText = i;
+
+    // აქ უნდა იყოს ეს
+    btn.classList.toggle("active", i === currentPage);
+
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      displayProducts(currentPage, data);
+      setupPagination(data); // რომ active განახლდეს
+    });
+
+    pagination.appendChild(btn);
+  }
+};
+
+
+
+
+
+
 
 
 
@@ -97,9 +143,11 @@ if (name && name.length >= 2) {
         });
 }
 
-
-
-
+function renderProducts(data) {
+  currentPage = 1;
+  displayProducts(currentPage, data);
+  setupPagination(data);
+}
 function applyFilters(data) {
     const searchName = document.getElementById("filterName").value.toLowerCase();
     const veg = document.getElementById("filterVegeterian").checked;
@@ -112,48 +160,54 @@ function applyFilters(data) {
     return data.filter(item => {
         if (veg && !item.vegeterian) return false;
         if (nuts && !item.nuts) return false;
-        if (item.spiciness < minSpice) return false;
+
+        // 🔥 აქ არის მთავარი fix
+        if (minSpice > 0 && item.spiciness !== minSpice) return false;
+
         if (item.price < minPrice || item.price > maxPrice) return false;
         if (searchName && !item.name.toLowerCase().includes(searchName)) return false;
+
         return true;
     });
 }
 
 
-function renderProducts(data) {
-    food.innerHTML = "";
-    if (!data.length) {
-        food.innerHTML = "<p>No products match your filters.</p>";
-        return;
-    }
+function displayProducts(page, data) {
+  food.innerHTML = "";
 
-    data.forEach(item => {
-        const canBuy = true; 
+  let start = (page - 1) * itemsPerPage;
+  let end = start + itemsPerPage;
+  let paginatedItems = data.slice(start, end);
 
-        food.innerHTML += `
-        <div class="card">
-            <div class="nameall">
-                <p class="name">${item.name}</p>
-                <p class="price">Price: ${item.price}$</p>
-            </div>
-            <div class="imgall">
-                <img src="${item.image}" class="img">
-                <p>${"🌶️".repeat(item.spiciness)}</p>
-            </div>
-            <div class="itemall">
-                <div class="item">
-                    <p>Nuts: ${item.nuts ? "✔️" : "❌"}</p>
-                    <p>Vegetarian: ${item.vegeterian ? "✔️" : "❌"}</p>
-                </div>
-                <button 
-                    onclick="addToCart(${item.id})" class="button1">
-                    ${canBuy ? "Add to Cart" : "Out of Stock"}
-                </button>
-            </div>
-        </div>`;
-    });
+  if (!paginatedItems.length) {
+    food.innerHTML = "<p>No products match your filters.</p>";
+    return;
+  }
+
+  paginatedItems.forEach(item => {
+    food.innerHTML += `
+    <div class="card">
+        <div class="group1"
+            <p class="name">${item.name}</p>
+            <p class="price">Price: ${item.price}$</p>
+        </div>  
+        <div class="imgall">
+          <img src="${item.image}" class="img">
+          <p>${"🌶️".repeat(item.spiciness)}</p>
+        </div>
+        <div class="itemall">
+          <div class="item">
+            <p>Nuts: ${item.nuts ? "✔️" : "❌"}</p>
+            <p>Vegetarian: ${item.vegeterian ? "✔️" : "❌"}</p>
+          </div>
+          <button onclick="addToCart(${item.id})" class="button1">
+            Add to Cart
+          </button>
+        </div>
+    </div>
+    `;
+  });
 }
-
 
 document.getElementById("filterName").addEventListener("input", () => renderProducts(applyFilters(productsData)));
 document.getElementById("filterVegeterian").addEventListener("change", () => renderProducts(applyFilters(productsData)));
@@ -229,7 +283,7 @@ function loadCart() {
             cartItems.innerHTML = "";
 
             if (!Array.isArray(data) || !data.length) {
-                cartItems.innerHTML = "<p>კალათა ცარიელია</p>";
+                cartItems.innerHTML = "<p>Cart is empty</p>";
                 cartTotal.textContent = "Total: 0$";
                 if (cartCount) cartCount.textContent = "0";
                 return;
@@ -245,7 +299,7 @@ function loadCart() {
                 cartItems.innerHTML += `
                 <div class="cart-item">
                     <div class="oll">
-                        <div>
+                        <div class="itemname">
                             <p>${item.product.name}</p>
                             <img src="${item.product.image}" class="image">
                         </div>
@@ -563,11 +617,14 @@ if (authBtn) {
     });
 }
 
-function openPopup(url) {
+function openPopup(url, type) {
     popupContent.innerHTML = `
-        <iframe src="${url}"  style="width:100%;height:400px;border:none;"></iframe>
-        <button id="closePopupBtn">❌</button>
+        <div class="popup-box ${type}">
+            <button id="closePopupBtn">❌</button>
+            <iframe src="${url}"></iframe>
+        </div>
     `;
+
     popupModal.style.display = "flex";
 
     document
@@ -575,6 +632,14 @@ function openPopup(url) {
         ?.addEventListener("click", closePopup);
 }
 
+
+registerBtn?.addEventListener("click", () => {
+    openPopup("register.html", "register");
+});
+
+authBtn?.addEventListener("click", () => {
+    openPopup("auth.html", "auth");
+});
 function closePopup() {
     popupModal.style.display = "none";
     popupContent.innerHTML = "";

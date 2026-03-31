@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     font-family: font;
-    color:  rgb(241, 239, 239);;
+    color: rgb(250, 248, 248);
  }
 
 
@@ -15,35 +15,43 @@
 
 body{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90vw;
-    height: 280vh;
-    color: rgb(208, 206, 206);
-    text-align: center;
+    position: fixed;
+    z-index: 4;
+    flex-direction: column; 
+    align-items: flex-start;
+
+   min-width: 90vw;
+    padding: 20px;
+    text-align: center; 
 }
 #avatarImg{
-    width: 10vw;
-    height: 7vh;
+    width: 8vw;
+    height: 5vh;
 }
 
 h2{
+    width: 90vw;
+    text-align: center;
     color: rgb(253, 252, 252);
 }
 
-#signupForm{
+ #signupForm{
     display: flex;
     flex-direction: column;
-    height: 250vh;
-    width: 90vw;
+    height: 75vh;
+    width: 95vw;
 
-} 
+
+}  
+
 
 
 .showPassword{
     display: flex;
     flex-direction: row-reverse;
     width: 190px;
+    margin-top: 10px;
+    font-size: 12px;
     gap:5%;
 }
 
@@ -55,43 +63,173 @@ h2{
 
 }
 
-
 .field{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 10px;
-    height: 80px;
+    height: 12vh;
+    width: 80%;
+ 
 }
+
+.field1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 12vh;
+    width: 80%;
+
+
+}
+
+.field2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 15vh;
+    width: 80%;
+
+}
+
+
+
+.field3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 16vh;
+    width: 80%;
+
+}
+
+.field4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px;
+     height: 16vh;
+     width: 80%;
+
+}
+
+
+.field5{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+     height: 16vh;
+     width: 86%;
+
+}
+
+.field6{
+      display: grid;
+   grid-template-columns: repeat(4, 1fr);
+  gap:5px;
+  width: 95vw;
+  min-height: 15vh;
+}
+
+
+.row {
+  display: grid;
+     grid-template-columns: repeat(2, 1fr); 
+  gap: 5px;
+  min-width: 90vw;
+  justify-content: flex-start;
+}
+
+
+
+
 
 .firstName{
     border: 1px solid gray;
-    height: 40px;
+    height: 50px;
+    width: 250px;
     text-align: center;
     margin-top: 4%;
-   
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
+
 }
 
 
 .lastName{
     border: 1px solid gray;
-    height: 40px;
+    height: 50px;
     text-align: center;
+    width: 250px;
     margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    gap: 5%;
+}
+.box1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    gap: 5%;
+}
+
+.avatar1{
+    display: flex;
+    align-items: center;
+}
 .age{
-    border: 1px solid gray;
     height: 40px;
     text-align: center;
+    width: 70px;
     margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
+.box2{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 12vw;
+    gap: 5%;
+}
+
+
+.box3{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+}
+
+
 
 #gender{
-       border: 1px solid gray;
+   border: 1px solid gray;
     height: 40px;
     text-align: center;
+    width: 130px;
     margin-top: 4%;
-    color: grey;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 
 .other{
@@ -101,83 +239,192 @@ h2{
 
 #email{
     border: 1px solid gray;
-    height: 40px;
+    height: 48px;
+    width: 250px;
     text-align: center;
     margin-top: 4%;
-    color: grey;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 
 
-.field1{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  
-}
+
+
 
 #password{
-    border: 1px solid gray;
-    height: 40px;
+      border: 1px solid gray;
+    height: 48px;
+    width: 250px;
     text-align: center;
-    margin-top: 2%;
-    color: grey;
+    margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 
 #address{
-      border: 1px solid gray;
-    height: 40px;
+     border: 1px solid gray;
+    height: 48px;
+    width: 250px;
     text-align: center;
-    margin-top: 2%;
-    color: grey; 
+    margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 #phone{
-    border: 1px solid gray;
-    height: 40px;
+   border: 1px solid gray;
+    height: 48px;
+    width: 250px;
     text-align: center;
-    margin-top: 2%;
-    color: grey; 
+    margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 #zipcode{
     border: 1px solid gray;
     height: 40px;
     text-align: center;
-    margin-top: 2%;
-    color: grey; 
+    width: 70px;
+    margin-top: 4%;
+     color: rgb(58, 58, 58);
+     border-radius: 5px;
 }
 
 #avatar{
      border: 1px solid gray;
     height: 40px;
+    width: 220px;
     text-align: center;
     margin-top: 2%;
-    color: grey;
+    color: rgb(58, 58, 58);
+    border-radius: 5px;
 }
 
 .primary{
-    width: 100px;
-    height: 30px;
+    width: 160px;
+    height: 50px;
     color: rgb(255, 255, 255);
     background-color: rgb(1, 82, 1);
-    border-radius: 4px;
-    margin-top: 10%;
+    border-radius: 5px;
+    margin-top: 3%;
+    border: none;
+    font-size: 18px;
+}
+
+.primary:hover{
+      background-color: rgb(0, 44, 0);
 }
 
 .reset{
-    width: 100px;
-    height: 30px;
+    width: 160px;
+    height: 50px;
     color: rgb(255, 255, 255);
     background-color:rgb(190, 3, 3) ;
     border-radius: 4px;
-}
+    border: none;
+    font-size: 18px;
+    
 
+}
+.reset:hover{
+  background-color:rgb(105, 3, 3) ;
+}
 #formError{
     display: none;
     width: 250px;
     padding-top: 10%;
-    height: 100px;
+    height: 40px;
     font-size: 16px;
     color: rgb(129, 3, 3);
    font-weight: bolder;
+
+}
+
+
+
+
+.showPassword{
+    margin-top: 3px;
+
+}
+
+
+
+@media screen and (min-width: 501px)  and (max-width: 750px){
+
+
+
+
+.row{
+    justify-content: flex-start;
+    align-content: center;
+    width: 80vw;
+    gap:2px;
+}
+
+
+.field{
+    width: 35vw;
+}
+
+.firstName{
+    width: 200px;
+    max-height: 45px;
+}
+
+.field1{
+      width: 35vw;
+}
+
+.field2{
+      width: 35vw;
+}
+
+.field3{
+      width: 35vw;
+}
+
+.field4{
+      width: 38vw;
+      margin: 0px;
+    padding: 0px;
+    align-items: center;
+}
+.field5{
+      width: 38vw;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+#email{
+    width: 200px;
+    max-height: 45px;
+}
+
+
+
+#password{
+     width: 200px;
+     max-height: 45px;
+}
+
+
+
+.lastName{
+
+    width: 200px;
+    max-height: 45px;
+}
+
+#address{
+    width: 200px;
+    max-height: 45px;
+}
+
+
+#phone{
+        width: 200px;
+    max-height: 45px;
 }
 
 
@@ -185,3 +432,332 @@ h2{
 
 
 
+
+
+.field6{
+    grid-template-columns: repeat(3, 1fr);
+    width: 85vw;
+    justify-items:flex-start;
+    gap:30px;
+    min-height: 28vh;
+    padding: 1px;
+} 
+
+
+.box{
+    width: 20vw;
+    max-height: 12vh;
+    padding: 0;
+    margin: 0;
+}
+
+
+.box1{
+    width: 30vw;
+    max-height: 12vh;
+    margin: 0;
+     align-items: flex-start;
+     justify-content: flex-end;
+}
+.box2{
+    width: 30vw;
+    max-height: 12vh;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0px;
+    gap:0px;
+}
+.box3{
+    width: 30vw;
+    max-height: 10vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:column;
+}
+.url{
+    width: 100%;
+}
+.avatar1{
+    flex-direction: row;
+}
+
+.primary{
+    width: 120px;
+    font-size: 14px;
+    max-height: 40px;
+    margin-top: 10px;
+  
+}
+
+
+.reset{
+    max-height: 40px;
+        width: 120px;
+    font-size: 14px;
+      margin-left: 15px;
+}
+.actions{
+    flex-direction: row;
+    min-height: 15vh;
+    align-content: flex-start;
+
+  
+}
+
+
+ #gender{
+    max-height: 50px;
+}
+
+
+#zipcode{
+    max-height: 50px;
+} 
+}
+
+
+
+
+ @media screen and (max-width: 500px){
+
+
+    body{
+        padding: 0px;
+        width: 95vw;
+    }
+
+
+
+
+#signupForm{
+    min-height: 90vh;
+    width: 100%;
+    overflow-y: auto;
+    align-items: center;
+    justify-items: center;
+
+} 
+
+
+h2{
+    min-height: 30px;
+    width: 95vw;
+    padding-top: 20px;
+
+}
+
+.row{
+    width: 90vw;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 5px;
+    min-height: 90vh;
+
+
+}
+.field{
+    flex-direction: row;
+    gap:2%;
+    width: 85vw;
+    max-height: 7vh;
+}
+.firstName{
+    max-height: 45px;
+    width: 166px;
+ }
+
+ .lastName{
+    max-height: 45px;
+    width: 166px;
+ }
+
+
+
+.conteiner{
+    width: 90vw;
+    align-items: center;
+    flex-direction: column;
+    min-height: 30vh;
+
+}
+
+
+
+.field1{
+    flex-direction: row;
+    gap:2%;
+    width: 85vw;
+    max-height: 7vh;
+}
+label{
+    width: 30vw;
+    text-align: center;
+}
+#email{
+      max-height: 45px;
+    width: 166px;
+}
+
+.field3{
+    flex-direction: column;
+    gap:2%;
+    width: 76%;
+    max-height: 12vh;
+    align-items: flex-start;
+
+}
+
+#password{
+    max-height: 45px;
+    width: 166px;
+
+}
+
+.boxpas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 85vw;
+    gap:2%;
+    max-height: 15vh;
+
+}
+
+.conteiner1{
+    width: 90vw;
+    flex-direction: column;
+     align-items:flex-end ; 
+    min-height: 30vh;
+}
+
+#address{
+    max-height: 45px;
+    width: 168px;
+    
+}
+
+.field2{
+    flex-direction: row;
+    gap:2%;
+    width: 85vw;
+    max-height: 7vh;
+}
+
+
+
+.field4{
+    flex-direction: row;
+    align-items: center;
+    gap:2%;
+    width: 85vw;
+    max-height: 7vh;
+}
+
+
+.field5{
+    flex-direction: row;
+    align-items: center;
+    gap:2%;
+    width: 85vw;
+    max-height: 7vh;
+   
+}
+
+#phone{
+    max-height: 45px;
+    width: 168px;
+}
+
+
+.conteiner2{
+    width: 90vw;
+    flex-direction: row;
+}
+
+.conteiner3{
+    width: 90vw;
+  
+}
+
+
+.actions{
+    flex-direction: row;
+    min-height: 15vh;
+    align-content: flex-start;
+  
+}
+
+
+.primary{
+    width: 120px;
+    font-size: 14px;
+    max-height: 40px;
+  
+}
+
+
+.reset{
+    max-height: 40px;
+        width: 120px;
+    font-size: 14px;
+      margin-left: 15px;
+}
+
+#avatar{
+    width: 150px;
+} 
+.showPassword{
+    display: flex;
+    width: 100%;
+    min-height: 3vh;
+    align-items: flex-end;
+
+}
+
+
+.field6{
+    grid-template-columns: repeat(2, 1fr);
+    width: 90vw;
+    justify-items:flex-start;
+    gap:0px;
+    min-height: 35vh;
+    padding: 1px;
+}
+
+
+.box{
+    width: 40vw;
+    max-height: 12vh;
+    padding: 0;
+    margin: 0;
+}
+
+
+.box1{
+    width: 40vw;
+    max-height: 12vh;
+    margin: 0;
+     align-items: flex-start;
+}
+.box2{
+    width: 40vw;
+    max-height: 12vh;
+    justify-content: flex-start;
+   
+    padding: 0px;
+    gap:0px;
+}
+.box3{
+    width: 50vw;
+    max-height: 12vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:column;
+}
+.url{
+    width: 100%;
+}
+.avatar1{
+    flex-direction: column;
+}
+
+} 
