@@ -53,6 +53,7 @@
                     </div>
                     <div id="checkoutModal" class="modal">
                         <div class="modal-content1">
+                            <button onclick="closeCheckout()"  class="cancel">❌</button>
                             <h2>Payment</h2>
                             <p id="checkoutTotal"></p>
                             <input placeholder="Card Number (demo)" class="number">
@@ -60,13 +61,8 @@
                                 <input placeholder="MM/YY" class="cvc">
                                 <input placeholder="CVC" class="cvc">
                             </div>
-                            
-                            <div>
-                                <button onclick="confirmPayment()" class="pay">Pay</button>
-                                <button onclick="closeCheckout()"  class="cancel">❌</button>
-                                <p id="paymentStatus"></p>
-                                </div>
-                            </div>
+                            <button onclick="confirmPayment()" class="pay">Pay</button>
+                            <p id="paymentStatus"></p>
                         </div>
                     </div>
                 </div>
