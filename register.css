@@ -439,16 +439,17 @@ h2{
     width: 85vw;
     justify-items:flex-start;
     gap:30px;
-    min-height: 28vh;
+    min-height: 30vh;
     padding: 1px;
 } 
 
 
 .box{
-    width: 20vw;
+      width: 30vw;
     max-height: 12vh;
-    padding: 0;
     margin: 0;
+     align-items: center;
+     justify-content: flex-end;
 }
 
 
@@ -460,12 +461,11 @@ h2{
      justify-content: flex-end;
 }
 .box2{
-    width: 30vw;
+        width: 12vw;
     max-height: 12vh;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 0px;
-    gap:0px;
+    margin: 0;
+     align-items: center;
+     justify-content: flex-end;
 }
 .box3{
     width: 30vw;
@@ -473,6 +473,7 @@ h2{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction:column;
+    margin-left: 65%;
 }
 .url{
     width: 100%;
@@ -548,6 +549,7 @@ h2{
 
 .row{
     width: 90vw;
+
     grid-template-columns: repeat(1, 1fr); 
     gap: 5px;
     min-height: 90vh;
@@ -555,19 +557,18 @@ h2{
 
 }
 .field{
-    flex-direction: row;
-    gap:2%;
+    justify-content: flex-end;
     width: 85vw;
-    max-height: 7vh;
+    max-height: 10vh;
 }
 .firstName{
-    max-height: 45px;
-    width: 166px;
+    max-height: 7vh;
+    min-width: 50vw;
  }
 
  .lastName{
-    max-height: 45px;
-    width: 166px;
+    max-height: 7vh;
+    min-width: 50vw;
  }
 
 
@@ -583,42 +584,48 @@ h2{
 
 
 .field1{
-    flex-direction: row;
-    gap:2%;
     width: 85vw;
-    max-height: 7vh;
+    max-height: 10vh;
 }
 label{
     width: 30vw;
     text-align: center;
 }
+
+
+
+.field2{
+    width: 85vw;
+    max-height: 10vh;
+}
+
+
+
 #email{
-      max-height: 45px;
-    width: 166px;
+    max-height: 7vh;
+    min-width: 50vw;
 }
 
 .field3{
     flex-direction: column;
-    gap:2%;
-    width: 76%;
-    max-height: 12vh;
+    width: 85vw;
+    max-height: 14vh;
     align-items: flex-start;
 
 }
 
 #password{
-    max-height: 45px;
-    width: 166px;
+    max-height: 7vh;
+    min-width: 50vw;
 
 }
 
 .boxpas{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     width: 85vw;
-    gap:2%;
-    max-height: 15vh;
+    max-height: 10vh;
 
 }
 
@@ -630,41 +637,30 @@ label{
 }
 
 #address{
-    max-height: 45px;
-    width: 168px;
+     max-height: 7vh;
+    min-width: 50vw;
     
 }
 
-.field2{
-    flex-direction: row;
-    gap:2%;
-    width: 85vw;
-    max-height: 7vh;
-}
-
-
 
 .field4{
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap:2%;
     width: 85vw;
-    max-height: 7vh;
+    max-height: 10vh;
 }
 
 
 .field5{
-    flex-direction: row;
-    align-items: center;
-    gap:2%;
+    align-items: center;;
     width: 85vw;
-    max-height: 7vh;
+    max-height: 10vh;
    
 }
 
 #phone{
-    max-height: 45px;
-    width: 168px;
+     max-height: 7vh;
+    min-width: 50vw;
 }
 
 
@@ -707,9 +703,10 @@ label{
 } 
 .showPassword{
     display: flex;
-    width: 100%;
+    width: 80%;
     min-height: 3vh;
     align-items: flex-end;
+    gap:1px;
 
 }
 
@@ -719,11 +716,24 @@ label{
     width: 90vw;
     justify-items:flex-start;
     gap:0px;
-    min-height: 35vh;
+    min-height: 30vh;
     padding: 1px;
 }
 
+.age{
+    width: 25vw;
+}
+#zipcode{
+    width: 25vw;
+}
 
+#gender{
+    width: 40vw;
+}
+
+#avatar{
+    width: 40vw;
+}
 .box{
     width: 40vw;
     max-height: 12vh;
