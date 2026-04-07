@@ -20,6 +20,7 @@
     width: 100%;
     min-height: 40vh;
     height: auto;
+ 
 
 
 }
@@ -336,7 +337,8 @@ section{
 }
 .search1{
     width: 200px;
-    height: 70px;
+    min-height: 70px;
+    height: auto;
     margin-top: 7px;
     text-align: center;
     border: 1px solid rgb(209, 208, 208);
@@ -1554,24 +1556,22 @@ h1{
 
 @media screen and (max-width: 500px) {
 
-    header {
-        max-width: 100%;
-        max-height: 25vh;
-        gap:5%;
-     
-    }
+
 
     .kitoll {
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-around;
         width: 90vw;
         max-height: 15vh;
+        height: auto;
 
     }
 
 .content{
-    min-height: 25vh;
+    min-height: 20vh;
     height: auto;
+      max-width: 100%;
+        gap:5%;
 }
 
     .kit {
@@ -1820,8 +1820,10 @@ h1{
     }
 
     .search1{
-        width: 70vw;
-        min-height: 5vh;
+        width: 85vw;
+        min-height: 7vh;
+        height: auto;
+
     }
 
 
@@ -2010,7 +2012,10 @@ min-height: 10vh;
     }
 
 
-
+.rest{
+    min-height: 5vh;
+    height: auto;
+}
 
 }
 
