@@ -40,6 +40,7 @@ h2{
     flex-direction: column;
     height: 75vh;
     width: 95vw;
+  
 
 
 }  
@@ -133,6 +134,7 @@ h2{
   gap:5px;
   width: 95vw;
   min-height: 15vh;
+  height: auto;
 }
 
 
@@ -549,7 +551,7 @@ h2{
 
 .row{
     width: 90vw;
-
+    height: auto;
     grid-template-columns: repeat(1, 1fr); 
     gap: 5px;
     min-height: 90vh;
@@ -559,63 +561,59 @@ h2{
 .field{
     justify-content: flex-end;
     width: 85vw;
-    max-height: 10vh;
+    min-height: 10vh;
+    height: auto;
 }
 .firstName{
-    max-height: 7vh;
+    min-height: 6vh;
+    height: auto;
     min-width: 50vw;
  }
 
  .lastName{
-    max-height: 7vh;
+     min-height: 6vh;
+    height: auto;
     min-width: 50vw;
  }
 
 
 
-.conteiner{
-    width: 90vw;
-    align-items: center;
-    flex-direction: column;
-    min-height: 30vh;
-
-}
 
 
 
 .field1{
+     min-height: 10vh;
+    height: auto;
     width: 85vw;
-    max-height: 10vh;
-}
-label{
-    width: 30vw;
-    text-align: center;
 }
 
 
 
 .field2{
     width: 85vw;
-    max-height: 10vh;
+     min-height: 10vh;
+    height: auto;
 }
 
 
 
 #email{
-    max-height: 7vh;
+      min-height: 6vh;
+    height: auto;
     min-width: 50vw;
 }
 
 .field3{
     flex-direction: column;
-    width: 85vw;
-    max-height: 14vh;
+     min-height: 14;
+    height: auto;
     align-items: flex-start;
 
 }
 
 #password{
-    max-height: 7vh;
+    min-height: 6vh;
+    height: auto;
     min-width: 50vw;
 
 }
@@ -625,19 +623,16 @@ label{
     flex-direction: column;
     align-items: center;
     width: 85vw;
-    max-height: 10vh;
+    min-height: 10vh;
+    height: auto;
 
 }
 
-.conteiner1{
-    width: 90vw;
-    flex-direction: column;
-     align-items:flex-end ; 
-    min-height: 30vh;
-}
+
 
 #address{
-     max-height: 7vh;
+    min-height: 6vh;
+    height: auto;
     min-width: 50vw;
     
 }
@@ -647,37 +642,32 @@ label{
     flex-direction: column;
     align-items: center;
     width: 85vw;
-    max-height: 10vh;
+    min-height: 10vh;
+    height: auto;
 }
 
 
 .field5{
     align-items: center;;
     width: 85vw;
-    max-height: 10vh;
+    min-height: 12vh;
+    height: auto;
    
 }
 
 #phone{
-     max-height: 7vh;
+     min-height: 6vh;
+    height: auto;
     min-width: 50vw;
 }
 
 
-.conteiner2{
-    width: 90vw;
-    flex-direction: row;
-}
-
-.conteiner3{
-    width: 90vw;
-  
-}
 
 
 .actions{
     flex-direction: row;
     min-height: 15vh;
+    height: auto;
     align-content: flex-start;
   
 }
@@ -716,41 +706,56 @@ label{
     width: 90vw;
     justify-items:flex-start;
     gap:0px;
-    min-height: 30vh;
+    min-height: 35vh;
+    height: auto;
     padding: 1px;
 }
 
 .age{
-    width: 25vw;
+      min-height: 5vh;
+    height: auto;
+    min-width: 25vw;
 }
 #zipcode{
     width: 25vw;
+    min-height: 5vh;
+    height: auto;
+
 }
 
 #gender{
-    width: 40vw;
+    width: 42vw;
+    height: auto;
+      min-height: 6vh;
+
 }
 
 #avatar{
-    width: 40vw;
+    width: 50vw;
+    height: auto;
+      min-height: 6vh;
+
 }
 .box{
     width: 40vw;
-    max-height: 12vh;
+    min-height: 11vh;
+    height: auto;
     padding: 0;
     margin: 0;
 }
 
 
 .box1{
-    width: 40vw;
-    max-height: 12vh;
+    min-height: 12vh;
+    height: auto;
     margin: 0;
+    width: 40vw;
      align-items: flex-start;
 }
 .box2{
     width: 40vw;
-    max-height: 12vh;
+     min-height: 12vh;
+    height: auto;
     justify-content: flex-start;
    
     padding: 0px;
@@ -758,16 +763,18 @@ label{
 }
 .box3{
     width: 50vw;
-    max-height: 12vh;
+     min-height: 12vh;
+    height: auto;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction:column;
 }
-.url{
-    width: 100%;
-}
+
 .avatar1{
     flex-direction: column;
+    height: auto;
+
+    
 }
 
 } 

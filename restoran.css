@@ -50,6 +50,7 @@ h2{
     bottom:  5px;
     border-radius: 12px;
    background:   linear-gradient(to right, #020202, #675403);
+     
 
 }
 
@@ -62,13 +63,15 @@ h2{
 .popup-box.register {
     width: 52vw;
     height: 90vh;
+ 
       
 }
 
 
 .popup-box.auth {
     width: 25vw;
-    height: 70vh;
+    height: 62vh;
+
 
 }
 
@@ -877,6 +880,7 @@ p{
     justify-content: center;
     align-items: center;
     z-index: 6;
+    height: auto;
    
 }
 
@@ -889,9 +893,11 @@ p{
   gap: 2%;
   padding: 20px;
   width: 25vw;
-  height: 55vh;
+  min-height: 55vh;
+  height: auto;
   border-radius: 8px;
   background: linear-gradient(to right, #020202, #675403);
+
 }
 
 
@@ -910,7 +916,7 @@ p{
 .modal-content2 {
     display: flex;
   position: relative;  
-  justify-content: flex-end; /* აუცილებელია */
+  justify-content: flex-end; 
 }
 
 
@@ -1003,7 +1009,8 @@ body.dark {
 .pay{
     background-color: rgb(2, 102, 2);
     width: 16vw;
-    height: 7vh;
+    max-height: 6vh;
+    height: auto;
     border-radius: 5px;
     font-size: 15px;
     border: none;
@@ -1914,7 +1921,8 @@ h1{
 
     .popup-box.register {
         width: 95vw;
-        min-height: 100vh;
+        min-height: 00vh;
+
         
     }
 
@@ -1985,6 +1993,12 @@ h1{
         width: 120px;
 
     
+    }
+
+    .search{
+
+        min-height: 10vh;
+        height: auto;
     }
 
 }
