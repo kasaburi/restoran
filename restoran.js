@@ -59,13 +59,13 @@ function setupPagination(data) {
     let btn = document.createElement("button");
     btn.innerText = i;
 
-    // აქ უნდა იყოს ეს
+  
     btn.classList.toggle("active", i === currentPage);
 
     btn.addEventListener("click", () => {
       currentPage = i;
       displayProducts(currentPage, data);
-      setupPagination(data); // რომ active განახლდეს
+      setupPagination(data); 
     });
 
     pagination.appendChild(btn);
@@ -161,7 +161,7 @@ function applyFilters(data) {
         if (veg && !item.vegeterian) return false;
         if (nuts && !item.nuts) return false;
 
-        // 🔥 აქ არის მთავარი fix
+   
         if (minSpice > 0 && item.spiciness !== minSpice) return false;
 
         if (item.price < minPrice || item.price > maxPrice) return false;

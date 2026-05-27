@@ -18,11 +18,10 @@ body{
     position: fixed;
     z-index: 4;
     flex-direction: column; 
-    align-items: flex-start;
-
-   min-width: 90vw;
-    padding: 20px;
+    align-items: center;
+    max-width:  100%;
     text-align: center; 
+
 }
 #avatarImg{
     width: 8vw;
@@ -38,8 +37,12 @@ h2{
  #signupForm{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 30px;
     height: 75vh;
-    width: 95vw;
+    width: 100vw;
+
   
 
 
@@ -128,27 +131,14 @@ h2{
 
 }
 
-.field6{
-      display: grid;
-   grid-template-columns: repeat(4, 1fr);
-  gap:5px;
-  width: 95vw;
-  min-height: 15vh;
-  height: auto;
-}
-
 
 .row {
-  display: grid;
-     grid-template-columns: repeat(2, 1fr); 
-  gap: 5px;
-  min-width: 90vw;
-  justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 5px;
+    min-width: 90vw;
+    justify-content: flex-start;
 }
-
-
-
-
 
 .firstName{
     border: 1px solid gray;
@@ -173,62 +163,26 @@ h2{
 }
 
 
-.box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
-    gap: 5%;
-}
-.box1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
-    gap: 5%;
-}
 
 .avatar1{
     display: flex;
     align-items: center;
 }
 .age{
-    height: 40px;
+    height: 30px;
     text-align: center;
-    width: 70px;
+    max-width: 40px;
     margin-top: 4%;
      color: rgb(58, 58, 58);
      border-radius: 5px;
 }
-.box2{
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 12vw;
-    gap: 5%;
-}
-
-
-.box3{
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40vw;
-}
-
 
 
 #gender{
    border: 1px solid gray;
-    height: 40px;
+    max-height: 40px;
     text-align: center;
-    width: 130px;
+    width: 120px;
     margin-top: 4%;
      color: rgb(58, 58, 58);
      border-radius: 5px;
@@ -294,7 +248,7 @@ h2{
 #avatar{
      border: 1px solid gray;
     height: 40px;
-    width: 220px;
+    width: 270px;
     text-align: center;
     margin-top: 2%;
     color: rgb(58, 58, 58);
@@ -350,6 +304,129 @@ h2{
 }
 
 
+.actions{
+    position: relative;
+    bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.field6 {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.one{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    gap:5%;
+}
+.two{
+     display: flex;
+     width: 80%;
+     gap:5%;
+    justify-content: space-between;
+}
+
+
+.box{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap:10px;
+
+ 
+}
+
+
+.box1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap:10px;
+}
+.box2{
+     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 751px)  and (max-width: 1514px){
+    .field6{
+        min-height: 25vh;
+        height: auto;
+        justify-content: flex-start;
+    
+    } 
+.one{
+     min-height: 10vh;
+     height: auto;
+    width: 50vw;
+    gap:20px;
+}
+
+.two{
+    max-height: 15vh;
+    width: 50vw;
+    gap:20px;
+}
+
+
+.box{
+    width: 10vw;
+
+}
+.box1{
+    width: 20vw;
+}
+.actions{
+    min-height: 15vh;
+    align-content: flex-end;
+}
+
+
+#gender{
+    min-width: 20vw;
+    height: auto;
+    min-height: 5vh;
+}
+.age{
+    min-width: 10vw;
+    min-height: 5vh;
+  
+}
+}
+
+
+
 
 @media screen and (min-width: 501px)  and (max-width: 750px){
 
@@ -357,10 +434,11 @@ h2{
 
 
 .row{
-    justify-content: flex-start;
+    justify-items: center;
     align-content: center;
     width: 80vw;
     gap:2px;
+
 }
 
 
@@ -430,55 +508,9 @@ h2{
 }
 
 
-
-
-
-
-
-
-.field6{
-    grid-template-columns: repeat(3, 1fr);
-    width: 85vw;
-    justify-items:flex-start;
-    gap:30px;
-    min-height: 30vh;
-    padding: 1px;
-} 
-
-
-.box{
-      width: 30vw;
-    max-height: 12vh;
-    margin: 0;
-     align-items: center;
-     justify-content: flex-end;
-}
-
-
-.box1{
-    width: 30vw;
-    max-height: 12vh;
-    margin: 0;
-     align-items: flex-start;
-     justify-content: flex-end;
-}
-.box2{
-        width: 12vw;
-    max-height: 12vh;
-    margin: 0;
-     align-items: center;
-     justify-content: flex-end;
-}
-.box3{
-    width: 30vw;
-    max-height: 10vh;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction:column;
-    margin-left: 65%;
-}
 .url{
     width: 100%;
+   
 }
 .avatar1{
     flex-direction: row;
@@ -493,6 +525,7 @@ h2{
 }
 
 
+
 .reset{
     max-height: 40px;
         width: 120px;
@@ -502,20 +535,28 @@ h2{
 .actions{
     flex-direction: row;
     min-height: 15vh;
-    align-content: flex-start;
+    align-content: center;
 
   
 }
 
 
  #gender{
-    max-height: 50px;
+    min-height: 50px;
+    width: 190px;
 }
 
 
 #zipcode{
     max-height: 50px;
+    width: 15vw;
+   
 } 
+
+.age{
+     min-width: 120px;
+     min-height: 40px;
+}
 }
 
 
@@ -668,7 +709,7 @@ h2{
     flex-direction: row;
     min-height: 15vh;
     height: auto;
-    align-content: flex-start;
+    align-content: center;
   
 }
 
@@ -701,74 +742,58 @@ h2{
 }
 
 
-.field6{
-    grid-template-columns: repeat(2, 1fr);
-    width: 90vw;
-    justify-items:flex-start;
-    gap:0px;
-    min-height: 35vh;
+#age{
+    min-height: 35px;
     height: auto;
-    padding: 1px;
-}
+    min-width: 100%;
 
-.age{
-      min-height: 5vh;
-    height: auto;
-    min-width: 25vw;
 }
 #zipcode{
-    width: 25vw;
-    min-height: 5vh;
+    width: 70px;
+    min-height: 35px;
     height: auto;
 
 }
 
 #gender{
-    width: 42vw;
+    width: 120px;
     height: auto;
-      min-height: 6vh;
+      min-height: 40px;
 
+}
+.one{
+    width: 100%;
+}
+
+.two{
+    width: 100%;
 }
 
 #avatar{
-    width: 50vw;
+    min-width: 120px;
+    width: auto;
+
     height: auto;
-      min-height: 6vh;
+      min-height: 35px;
 
 }
+
+
 .box{
-    width: 40vw;
-    min-height: 11vh;
-    height: auto;
-    padding: 0;
-    margin: 0;
+    width: 20vw;
 }
 
 
-.box1{
-    min-height: 12vh;
-    height: auto;
-    margin: 0;
-    width: 40vw;
-     align-items: flex-start;
+.field6{
+    width: 90vw;
 }
-.box2{
-    width: 40vw;
-     min-height: 12vh;
-    height: auto;
-    justify-content: flex-start;
-   
-    padding: 0px;
-    gap:0px;
-}
-.box3{
-    width: 50vw;
-     min-height: 12vh;
-    height: auto;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction:column;
-}
+
+
+
+
+
+
+
 
 .avatar1{
     flex-direction: column;

@@ -50,7 +50,7 @@ h2{
 
 .popup-box {
     position: fixed;
-    top:  25px;
+    top:  1px;
     border-radius: 12px;
    background:   linear-gradient(to right, #020202, #675403);
      
@@ -65,7 +65,7 @@ h2{
 
 .popup-box.register {
     width: 52vw;
-    height: 90vh;
+    height: 99vh;
  
       
 }
@@ -267,19 +267,20 @@ h1{
 section{
 
     display: flex;
-    justify-content: space-around;
-    width: 95vw;
+    justify-content: space-evenly;
+    width: 80vw;
     min-height: 10vh;
     height: auto;
     background-color: rgba(245, 251, 180, 0.245);
     margin-bottom: 14px;
+   
 
 }
 .category{
     display: flex;
     align-items: center;
     align-content: center;
-    font-size: 22px;
+    font-size: 16px;
 
 
 }
@@ -288,7 +289,7 @@ section{
     display: flex;
     align-items: center;
     align-content: center;
-    font-size: 22px;
+    font-size: 16px;
   
 
 
@@ -309,8 +310,10 @@ section{
     flex-direction: row;
     width: 95vw;
     min-height: 79vh;
+   justify-content: space-between;
     height: auto;
     margin-bottom: 30px;
+
 
 }
 
@@ -320,7 +323,7 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20vw;
+    width: 25vw;
     font-size: 17px;
     gap:17px;
 }
@@ -330,14 +333,14 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:15%;
+    gap:5px;
     width: 100%;
-    height: 12vh;
+    height: 10vh;
    
 }
 .search1{
     width: 200px;
-    min-height: 70px;
+    min-height: 30px;
     height: auto;
     margin-top: 7px;
     text-align: center;
@@ -362,6 +365,7 @@ section{
     align-items: center;
     justify-content: center;
     gap:15%;
+    width: 10vw;
     text-align: center;
     height: 30px;
 }
@@ -381,7 +385,10 @@ section{
 #filterSpiciness{
     text-align: center;
     border: 1px solid rgb(209, 208, 208);
-    width: 60px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
     font-size: 12px;
     color: red;
     border-radius: 2px;
@@ -404,7 +411,7 @@ section{
     width: 40px;
      border: 1px solid rgb(209, 208, 208);
     text-align: center;
-       font-size: 12px;
+    font-size: 12px;
     border-radius: 2px;
 }
 
@@ -448,8 +455,27 @@ button.active {
 
 .foodconteiner{
     display: flex;
-    margin-top: 50px;
     flex-direction: column;
+    align-items: center;
+
+}
+
+
+#filterVegeterian{
+    width: 20px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid rgb(209, 208, 208);
+}
+
+
+#filterNuts{
+    width: 20px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid rgb(209, 208, 208);
 }
 
 .product {
@@ -478,11 +504,10 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-template-rows: auto;
-    gap: 40px;
-    width: 80vw;
+    gap: 30px;
+    width: 70vw;
     max-height: 160vh;
-
-    justify-content: center; 
+    justify-content: flex-start; 
    
 }
 
@@ -491,8 +516,7 @@ button {
     align-items: center;
     flex-direction: column;
     width: 300px; 
-    height: auto;
-    max-height: 70vh;
+    min-height: 55vh;
     background-image: url("./photo/yelowtwlouw.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -519,14 +543,14 @@ button {
 
 .img{
     width: 100%;
-    height: 35vh;
+    height: 25vh;
 
 }
 .imgall{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40vh;
+    height: 30vh;
 
 }
 
@@ -534,7 +558,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 14vh;
+    height: 10vh;
   
 }
 
@@ -579,6 +603,8 @@ p{
 
 .group1{
     display: flex;
+    position: relative;
+    top: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
@@ -971,8 +997,10 @@ body.dark {
 
 #registerBtn{
     background-color: rgb(2, 102, 2);
-    width: 12vw;
-    height: 6vh;
+    /* width: 12vw;
+    height: 6vh; */
+       width: 150px;
+    height: 40px;
     border: none;
     border-radius: 5px;
 
@@ -987,8 +1015,8 @@ body.dark {
 
 #authBtn{
     background-color: rgb(2, 102, 2);
-    width: 12vw;
-    height: 6vh;
+ width: 150px;
+    height: 40px;
     border: none;
     border-radius: 5px;
 }
@@ -1065,7 +1093,10 @@ h3{
     
 }
 
-
+.url{
+    border: 2px solid rgb(130, 238, 231);
+    height: 5vh;
+}
 #burger {
     display: none;
     font-size: 24px;
@@ -1080,6 +1111,7 @@ h3{
     display: flex;
     align-items: center;
 }
+
 
 
 
@@ -1207,6 +1239,7 @@ h1{
 
 .popup-box.auth{
     width: 40vw;
+
 }
 
 }
@@ -1268,7 +1301,7 @@ h1{
 
     .conteriner{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 90vw;
     max-height: 10vh;
 
@@ -1276,13 +1309,17 @@ h1{
 
 
     .cart{
-        max-width: 13vw;
+        max-width: 50px;
+
+        
     }
 
 
 
     .imgcart{
-        width: 40vw;
+        width: 80px;
+
+   
     }
 
 
@@ -1301,12 +1338,6 @@ h1{
 
 
 
-    #cartModal{
-        width: 100%;
-        left: 0px;
-        position: absolute; 
-    
-    }
 
 
     .many{
@@ -1368,7 +1399,7 @@ h1{
 
 
     .search{
-        max-height: 4vh;
+        max-height: 8vh;
         margin: 16px;
     
     }
@@ -1416,11 +1447,13 @@ h1{
         width: 95vw;
         max-height: 420vh;
         height: auto;
+        justify-content: center;
 
     }
     .card{
         width: 100%;
-        height: auto;
+        min-height: 35vh;
+       
     }
 
 
@@ -1432,6 +1465,7 @@ h1{
 
     .itemall{
         width: 90%;
+        margin-bottom: 10px;
     }
     .item{
         width: 100%;
@@ -1451,16 +1485,16 @@ h1{
     }
 
       .imgall{
-        max-height: 30vh;
+        max-height: 25vh;
     }
 
     .img{
         width: 100%;
-        max-height: 25vh;
+        max-height: 20vh;
     }
 
     .popup-box.register {
-        width: 80vw;
+        width: 95vw;
         min-height: 100vh;
         
     }
@@ -1600,10 +1634,12 @@ h1{
     } 
 
     #burger {
+        position: relative;
+        top: 10px;
         display: block;
-        padding-top: 5px;
         color: white;
         font-size: 40px;
+  
     }
 
     #mainNav.active .allregistracion {
@@ -1628,8 +1664,8 @@ h1{
 .conteriner{
     display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     width: 50vw;
     min-height: 8vh;
     height: auto;
@@ -1881,6 +1917,8 @@ min-height: 10vh;
         width: 90vw;
         max-height: 440vh;
         margin: 0;
+        justify-content: center;
+        margin-top: 10px;
 
     }
     .card{
@@ -1919,7 +1957,6 @@ min-height: 10vh;
 
 
 
-
     #closePopupBtn{
         position: absolute;
         right: 17px;
@@ -1930,7 +1967,7 @@ min-height: 10vh;
 
 
     .popup-box.register {
-        width: 95vw;
+        width: 100vw;
         min-height: 00vh;
 
         

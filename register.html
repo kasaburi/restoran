@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/register.css">
     </head>
     <body>
-        <h2>Registration</h2>
         <form id="signupForm" novalidate>
+            <h2>Registration</h2>
             <div class="row">
                 <div class="field">
                     <label for="firstName"> firstName *</label>
@@ -48,28 +48,31 @@
                 </div>
             </div>
             <div class="field6">
-                <div class="box">
-                    <label for="age">age *</label>
-                    <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
+                <div class="one">
+                    <div class="box">
+                        <label for="age">age *</label>
+                        <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
+                    </div>
+                    <div class="box1">
+                        <label for="gender">gender *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" class="other">choose…</option>
+                            <option value="MALE" class="other">MALE</option>
+                            <option value="FEMALE" class="other">FEMALE</option>
+                            <option value="OTHER" class="other">OTHER</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="box1">
-                    <label for="gender">gender *</label>
-                    <select id="gender" name="gender" required>
-                        <option value="" class="other">choose…</option>
-                        <option value="MALE" class="other">MALE</option>
-                        <option value="FEMALE" class="other">FEMALE</option>
-                        <option value="OTHER" class="other">OTHER</option>
-                    </select>
-                </div>
-                <div class="box2">
-                    <label for="zipcode">Zipcode *</label>
-                    <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required >
-                </div>
-                <div class="box3">
-                    <label for="avatar" class="url">Avatar URL *</label>
-                    <div class="avatar1">
-                         <input id="avatar" name="avatar" type="url" placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane" required />
-                        <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane">
+                <div class="two">
+                    <div class="box2">
+                        <label for="zipcode">Zipcode *</label>
+                        <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required >
+                    </div>
+                    <div class="box3">
+                        <label for="avatar" class="url">Avatar URL *    <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane"></label>
+                        <div class="avatar1">
+                            <input id="avatar" name="avatar" type="url" placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane" required />         
+                        </div> 
                     </div>
                 </div>
             </div>
