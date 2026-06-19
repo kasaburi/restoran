@@ -74,57 +74,48 @@ function setupPagination(data) {
 
 
 
-
-
-
-
-
-
 function getAllCategories() {
     fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
         .then(res => res.json())
         .then(data => {
             section.innerHTML = `<div class="category1" onclick="getProducts(null)">All</div>`;
+
             data.forEach(cat => {
                 section.innerHTML += `
                     <div class="category1" onclick="getProducts(${cat.id})">
                         ${cat.name}
-                    </div>`;
+                    </div>
+                `;
             });
-        });
+        })
+        .catch(err => console.error("Categories error:", err));
 }
-
 
 
 
 function getProducts(categoryId = currentCategory) {
-    currentCategory = categoryId; 
+    currentCategory = categoryId;
 
     let url = "https://restaurant.stepprojects.ge/api/Products/GetFiltered";
     const params = new URLSearchParams();
 
-    if (categoryId) {
+    if (categoryId !== null && categoryId !== undefined) {
         params.append("categoryId", categoryId);
     }
-const spiciness = document.getElementById("filterSpiciness")?.value;
 
-if (spiciness && spiciness !== "0") {
-    params.append("spiciness", spiciness);
-    console.log("Selected spiciness:", spiciness);
-console.log("API result:", data.map(i => i.spiciness));
-}
+    const spiciness = document.getElementById("filterSpiciness")?.value;
+    if (spiciness && spiciness !== "0") {
+        params.append("spiciness", spiciness);
+    }
 
+    const name = document.getElementById("filterName")?.value
+        ?.trim()
+        ?.toLowerCase()
+        ?.replace(/\s+/g, " ");
 
-
-const nameEl = document.getElementById("filterName");
-const name = nameEl?.value
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, " ");
-
-if (name && name.length >= 2) {
-    params.append("name", name);
-}
+    if (name && name.length >= 2) {
+        params.append("name", name);
+    }
 
     const minPrice = document.getElementById("filterMinPrice")?.value;
     const maxPrice = document.getElementById("filterMaxPrice")?.value;
@@ -139,33 +130,49 @@ if (name && name.length >= 2) {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            productsData = data;             
-            renderProducts(applyFilters(data)); 
-        });
+            productsData = data;
+            renderProducts(applyFilters(data));
+        })
+        .catch(err => console.error("Products error:", err));
 }
+
+
+
+
+
+
+
 
 function renderProducts(data) {
   currentPage = 1;
   displayProducts(currentPage, data);
   setupPagination(data);
 }
-function applyFilters(data) {
-    const searchName = document.getElementById("filterName").value.toLowerCase();
-    const veg = document.getElementById("filterVegeterian").checked;
-    const nuts = document.getElementById("filterNuts").checked;
 
-    const minSpice = Number(document.getElementById("filterSpiciness").value);
-    const minPrice = Number(document.getElementById("filterMinPrice").value) || 0;
-    const maxPrice = Number(document.getElementById("filterMaxPrice").value) || Infinity;
+
+
+
+
+
+
+
+function applyFilters(data) {
+    const searchName = document.getElementById("filterName")?.value?.toLowerCase() || "";
+    const veg = document.getElementById("filterVegeterian")?.checked;
+    const nuts = document.getElementById("filterNuts")?.checked;
+
+    const minSpice = Number(document.getElementById("filterSpiciness")?.value || 0);
+    const minPrice = Number(document.getElementById("filterMinPrice")?.value || 0);
+    const maxPrice = Number(document.getElementById("filterMaxPrice")?.value || Infinity);
 
     return data.filter(item => {
         if (veg && !item.vegeterian) return false;
         if (nuts && !item.nuts) return false;
 
-   
         if (minSpice > 0 && item.spiciness !== minSpice) return false;
 
         if (item.price < minPrice || item.price > maxPrice) return false;
+
         if (searchName && !item.name.toLowerCase().includes(searchName)) return false;
 
         return true;
@@ -173,42 +180,59 @@ function applyFilters(data) {
 }
 
 
+
+
 function displayProducts(page, data) {
-  food.innerHTML = "";
+    food.innerHTML = "";
 
-  let start = (page - 1) * itemsPerPage;
-  let end = start + itemsPerPage;
-  let paginatedItems = data.slice(start, end);
+    let start = (page - 1) * itemsPerPage;
+    let end = start + itemsPerPage;
 
-  if (!paginatedItems.length) {
-    food.innerHTML = "<p>No products match your filters.</p>";
-    return;
-  }
+    let paginatedItems = data.slice(start, end);
 
-  paginatedItems.forEach(item => {
-    food.innerHTML += `
-    <div class="card">
-        <div class="group1"
-            <p class="name">${item.name}</p>
-            <p class="price">Price: ${item.price}$</p>
-        </div>  
-        <div class="imgall">
-          <img src="${item.image}" class="img">
-          <p>${"🌶️".repeat(item.spiciness)}</p>
+    if (!paginatedItems.length) {
+        food.innerHTML = "<p>No products match your filters.</p>";
+        return;
+    }
+
+    paginatedItems.forEach(item => {
+        food.innerHTML += `
+        <div class="card">
+
+            <div class="group1">
+                <p class="name">${item.name}</p>
+                <p class="price">Price: ${item.price}$</p>
+            </div>
+
+            <div class="imgall">
+                <img src="${item.image}" class="img" onerror="this.src='./photo/111.png'">
+                <p>${"🌶️".repeat(item.spiciness)}</p>
+            </div>
+
+            <div class="itemall">
+                <div class="item">
+                    <p>Nuts: ${item.nuts ? "✔️" : "❌"}</p>
+                    <p>Vegetarian: ${item.vegeterian ? "✔️" : "❌"}</p>
+                </div>
+
+                <button onclick="addToCart(${item.id})" class="button1">
+                    Add to Cart
+                </button>
+            </div>
+
         </div>
-        <div class="itemall">
-          <div class="item">
-            <p>Nuts: ${item.nuts ? "✔️" : "❌"}</p>
-            <p>Vegetarian: ${item.vegeterian ? "✔️" : "❌"}</p>
-          </div>
-          <button onclick="addToCart(${item.id})" class="button1">
-            Add to Cart
-          </button>
-        </div>
-    </div>
-    `;
-  });
+        `;
+    });
 }
+
+
+
+
+
+
+
+
+
 
 document.getElementById("filterName").addEventListener("input", () => renderProducts(applyFilters(productsData)));
 document.getElementById("filterVegeterian").addEventListener("change", () => renderProducts(applyFilters(productsData)));
@@ -263,68 +287,68 @@ async function addToCart(productId) {
 
 
 
-// function loadCart() {
-//     fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
-//         .then(res => res.json())
-//         .then(data => {
-//             const cartItems = document.getElementById("cartItems");
-//             const cartTotal = document.getElementById("cartTotal");
-//             const cartCount = document.getElementById("cartCount"); 
-//             if (!cartItems) {
-//                 console.error("❌ cartItems element not found!");
-//                 return;
-//             }
-//             if (!cartTotal) {
-//                 console.error("❌ cartTotal element not found!");
-//                 return;
-//             }
-//             if (!cartCount) {
-//                 console.error("❌ cartCount element not found!");            }
+function loadCart() {
+    fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+        .then(res => res.json())
+        .then(data => {
+            const cartItems = document.getElementById("cartItems");
+            const cartTotal = document.getElementById("cartTotal");
+            const cartCount = document.getElementById("cartCount"); 
+            if (!cartItems) {
+                console.error("❌ cartItems element not found!");
+                return;
+            }
+            if (!cartTotal) {
+                console.error("❌ cartTotal element not found!");
+                return;
+            }
+            if (!cartCount) {
+                console.error("❌ cartCount element not found!");            }
 
-//             cartItems.innerHTML = "";
+            cartItems.innerHTML = "";
 
-//             if (!Array.isArray(data) || !data.length) {
-//                 cartItems.innerHTML = "<p>Cart is empty</p>";
-//                 cartTotal.textContent = "Total: 0$";
-//                 if (cartCount) cartCount.textContent = "0";
-//                 return;
-//             }
+            if (!Array.isArray(data) || !data.length) {
+                cartItems.innerHTML = "<p>Cart is empty</p>";
+                cartTotal.textContent = "Total: 0$";
+                if (cartCount) cartCount.textContent = "0";
+                return;
+            }
 
-//             let total = 0;
-//             let count = 0;
+            let total = 0;
+            let count = 0;
 
-//             data.forEach(item => {
-//                 total += item.product.price * item.quantity;
-//                 count += item.quantity;
+            data.forEach(item => {
+                total += item.product.price * item.quantity;
+                count += item.quantity;
 
-//                 cartItems.innerHTML += `
-//                 <div class="cart-item">
-//                     <div class="oll">
-//                         <div class="itemname">
-//                             <p>${item.product.name}</p>
-//                             <img src="${item.product.image}" class="image">
-//                         </div>
-//                         <div class="priceall">
-//                             <p>Price: ${item.product.price * item.quantity}$</p>
-//                             <p class="many">
-//                                 <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
-//                                 <span>${item.quantity}</span>
-//                                 <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
-//                             </p>
-//                         </div>
-//                     </div>
-//                     <button onclick="removeItem(${item.product.id})" class="remove1">❌ Remove</button>
-//                 </div>`;
-//             });
+                cartItems.innerHTML += `
+                <div class="cart-item">
+                    <div class="oll">
+                        <div class="itemname">
+                            <p>${item.product.name}</p>
+                            <img src="${item.product.image}" class="image"  >
+                        </div>
+                        <div class="priceall">
+                            <p>Price: ${item.product.price * item.quantity}$</p>
+                            <p class="many">
+                                <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="removeItem(${item.product.id})" class="remove1">❌ Remove</button>
+                </div>`;
+            });
 
-//             cartTotal.textContent = `Total: ${total}$`;
-//             if (cartCount) cartCount.textContent = count;
+            cartTotal.textContent = `Total: ${total}$`;
+            if (cartCount) cartCount.textContent = count;
 
-//             console.log("✅ Cart loaded:", count, "items, Total:", total);
-//         })
-//         .catch(err => console.error("❌ loadCart fetch error:", err));
+            console.log("✅ Cart loaded:", count, "items, Total:", total);
+        })
+        .catch(err => console.error("❌ loadCart fetch error:", err));
     
-// }
+}
 
 async function changeQuantity(productId, change) {
     try {
@@ -358,145 +382,6 @@ async function changeQuantity(productId, change) {
         console.error("Quantity error:", err);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function loadCart() {
-    const cartItems = document.getElementById("cartItems");
-    const cartTotal = document.getElementById("cartTotal");
-    const cartCount = document.getElementById("cartCount");
-
-    if (!cartItems || !cartTotal) {
-        console.error("Cart elements not found");
-        return;
-    }
-
-    fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(`HTTP error: ${res.status}`);
-            }
-            return res.json();
-        })
-        .then(data => {
-            console.log("Cart data:", data);
-
-            cartItems.innerHTML = "";
-
-            if (!Array.isArray(data) || data.length === 0) {
-                cartItems.innerHTML = "<p>Cart is empty</p>";
-                cartTotal.textContent = "Total: 0$";
-
-                if (cartCount) {
-                    cartCount.textContent = "0";
-                }
-
-                return;
-            }
-
-            let total = 0;
-            let count = 0;
-
-            const html = data
-                .filter(item => item?.product)
-                .map(item => {
-                    total += item.product.price * item.quantity;
-                    count += item.quantity;
-
-                    return `
-                    <div class="cart-item">
-                        <div class="oll">
-
-                            <div class="itemname">
-                                <p>${item.product.name}</p>
-
-                                <img
-                                    src="${item.product.image}"
-                                    class="image"
-                                    onerror="this.src='./images/default.png'"
-                                >
-                            </div>
-
-                            <div class="priceall">
-                                <p>
-                                    Price:
-                                    ${item.product.price * item.quantity}$
-                                </p>
-
-                                <p class="many">
-                                    <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
-
-                                    <span>${item.quantity}</span>
-
-                                    <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <button
-                            onclick="removeItem(${item.product.id})"
-                            class="remove1"
-                        >
-                            ❌ Remove
-                        </button>
-                    </div>
-                `;
-                })
-                .join("");
-
-            cartItems.innerHTML = html;
-
-            cartTotal.textContent = `Total: ${total}$`;
-
-            if (cartCount) {
-                cartCount.textContent = count;
-            }
-        })
-        .catch(err => {
-            console.error("loadCart error:", err);
-
-            cartItems.innerHTML =
-                "<p>Failed to load cart</p>";
-
-            cartTotal.textContent = "Total: 0$";
-
-            if (cartCount) {
-                cartCount.textContent = "0";
-            }
-        });
-}
-
-document.addEventListener("DOMContentLoaded", loadCart);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

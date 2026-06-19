@@ -590,13 +590,11 @@ p{
 
 .name{
     position: relative;
-    top:20px;
     text-align: center;
     padding-left: 20px;
-    width: 100px;
+    width: 18vw;
     min-height: 5vh;
     font-size: 18px;
-
 
 }
  
@@ -607,11 +605,9 @@ p{
     top: 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
     text-align: center;
     height: 10vh;
     width: 90%;
-
 } 
 
 .price{
