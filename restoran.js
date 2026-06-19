@@ -205,7 +205,7 @@ function displayProducts(page, data) {
             </div>
 
             <div class="imgall">
-                <img src="${item.image}" class="img" onerror="this.src='./photo/111.png'">
+                <img src="${item.image}" class="img" data-fallback="true">
                 <p>${"🌶️".repeat(item.spiciness)}</p>
             </div>
 
@@ -228,10 +228,24 @@ function displayProducts(page, data) {
 
 
 
+const fallbackImages = [
+   "./photo/111.png",
+  "./photo/m.png",
+  "./photo/mm.png",
+  "./photo/mmm.png",
+  "./photo/n.png",
+  "./photo/nn.png",
+  "./photo/nnn.png"
+];
 
 
-
-
+document.addEventListener("error", function (e) {
+  if (e.target.tagName === "IMG") {
+    const random = Math.floor(Math.random() * fallbackImages.length);
+    e.target.src = fallbackImages[random];
+    e.target.onerror = null;
+  }
+}, true);
 
 
 document.getElementById("filterName").addEventListener("input", () => renderProducts(applyFilters(productsData)));
@@ -326,7 +340,7 @@ function loadCart() {
                     <div class="oll">
                         <div class="itemname">
                             <p>${item.product.name}</p>
-                            <img src="${item.product.image}" class="image"  >
+                             <img src="${item.product.image}" class="image" data-fallback="true">
                         </div>
                         <div class="priceall">
                             <p>Price: ${item.product.price * item.quantity}$</p>
