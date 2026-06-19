@@ -96,6 +96,7 @@ function getAllCategories() {
 
 
 
+
 function getProducts(categoryId = currentCategory) {
     currentCategory = categoryId; 
 
@@ -262,68 +263,68 @@ async function addToCart(productId) {
 
 
 
-function loadCart() {
-    fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
-        .then(res => res.json())
-        .then(data => {
-            const cartItems = document.getElementById("cartItems");
-            const cartTotal = document.getElementById("cartTotal");
-            const cartCount = document.getElementById("cartCount"); 
-            if (!cartItems) {
-                console.error("❌ cartItems element not found!");
-                return;
-            }
-            if (!cartTotal) {
-                console.error("❌ cartTotal element not found!");
-                return;
-            }
-            if (!cartCount) {
-                console.error("❌ cartCount element not found!");            }
+// function loadCart() {
+//     fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+//         .then(res => res.json())
+//         .then(data => {
+//             const cartItems = document.getElementById("cartItems");
+//             const cartTotal = document.getElementById("cartTotal");
+//             const cartCount = document.getElementById("cartCount"); 
+//             if (!cartItems) {
+//                 console.error("❌ cartItems element not found!");
+//                 return;
+//             }
+//             if (!cartTotal) {
+//                 console.error("❌ cartTotal element not found!");
+//                 return;
+//             }
+//             if (!cartCount) {
+//                 console.error("❌ cartCount element not found!");            }
 
-            cartItems.innerHTML = "";
+//             cartItems.innerHTML = "";
 
-            if (!Array.isArray(data) || !data.length) {
-                cartItems.innerHTML = "<p>Cart is empty</p>";
-                cartTotal.textContent = "Total: 0$";
-                if (cartCount) cartCount.textContent = "0";
-                return;
-            }
+//             if (!Array.isArray(data) || !data.length) {
+//                 cartItems.innerHTML = "<p>Cart is empty</p>";
+//                 cartTotal.textContent = "Total: 0$";
+//                 if (cartCount) cartCount.textContent = "0";
+//                 return;
+//             }
 
-            let total = 0;
-            let count = 0;
+//             let total = 0;
+//             let count = 0;
 
-            data.forEach(item => {
-                total += item.product.price * item.quantity;
-                count += item.quantity;
+//             data.forEach(item => {
+//                 total += item.product.price * item.quantity;
+//                 count += item.quantity;
 
-                cartItems.innerHTML += `
-                <div class="cart-item">
-                    <div class="oll">
-                        <div class="itemname">
-                            <p>${item.product.name}</p>
-                            <img src="${item.product.image}" class="image">
-                        </div>
-                        <div class="priceall">
-                            <p>Price: ${item.product.price * item.quantity}$</p>
-                            <p class="many">
-                                <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
-                                <span>${item.quantity}</span>
-                                <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
-                            </p>
-                        </div>
-                    </div>
-                    <button onclick="removeItem(${item.product.id})" class="remove1">❌ Remove</button>
-                </div>`;
-            });
+//                 cartItems.innerHTML += `
+//                 <div class="cart-item">
+//                     <div class="oll">
+//                         <div class="itemname">
+//                             <p>${item.product.name}</p>
+//                             <img src="${item.product.image}" class="image">
+//                         </div>
+//                         <div class="priceall">
+//                             <p>Price: ${item.product.price * item.quantity}$</p>
+//                             <p class="many">
+//                                 <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
+//                                 <span>${item.quantity}</span>
+//                                 <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
+//                             </p>
+//                         </div>
+//                     </div>
+//                     <button onclick="removeItem(${item.product.id})" class="remove1">❌ Remove</button>
+//                 </div>`;
+//             });
 
-            cartTotal.textContent = `Total: ${total}$`;
-            if (cartCount) cartCount.textContent = count;
+//             cartTotal.textContent = `Total: ${total}$`;
+//             if (cartCount) cartCount.textContent = count;
 
-            console.log("✅ Cart loaded:", count, "items, Total:", total);
-        })
-        .catch(err => console.error("❌ loadCart fetch error:", err));
+//             console.log("✅ Cart loaded:", count, "items, Total:", total);
+//         })
+//         .catch(err => console.error("❌ loadCart fetch error:", err));
     
-}
+// }
 
 async function changeQuantity(productId, change) {
     try {
@@ -357,6 +358,154 @@ async function changeQuantity(productId, change) {
         console.error("Quantity error:", err);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loadCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const cartCount = document.getElementById("cartCount");
+
+    if (!cartItems || !cartTotal) {
+        console.error("Cart elements not found");
+        return;
+    }
+
+    fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`HTTP error: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log("Cart data:", data);
+
+            cartItems.innerHTML = "";
+
+            if (!Array.isArray(data) || data.length === 0) {
+                cartItems.innerHTML = "<p>Cart is empty</p>";
+                cartTotal.textContent = "Total: 0$";
+
+                if (cartCount) {
+                    cartCount.textContent = "0";
+                }
+
+                return;
+            }
+
+            let total = 0;
+            let count = 0;
+
+            const html = data
+                .filter(item => item?.product)
+                .map(item => {
+                    total += item.product.price * item.quantity;
+                    count += item.quantity;
+
+                    return `
+                    <div class="cart-item">
+                        <div class="oll">
+
+                            <div class="itemname">
+                                <p>${item.product.name}</p>
+
+                                <img
+                                    src="${item.product.image}"
+                                    class="image"
+                                    onerror="this.src='./images/default.png'"
+                                >
+                            </div>
+
+                            <div class="priceall">
+                                <p>
+                                    Price:
+                                    ${item.product.price * item.quantity}$
+                                </p>
+
+                                <p class="many">
+                                    <button onclick="changeQuantity(${item.product.id}, -1)">➖</button>
+
+                                    <span>${item.quantity}</span>
+
+                                    <button onclick="changeQuantity(${item.product.id}, 1)">➕</button>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <button
+                            onclick="removeItem(${item.product.id})"
+                            class="remove1"
+                        >
+                            ❌ Remove
+                        </button>
+                    </div>
+                `;
+                })
+                .join("");
+
+            cartItems.innerHTML = html;
+
+            cartTotal.textContent = `Total: ${total}$`;
+
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        })
+        .catch(err => {
+            console.error("loadCart error:", err);
+
+            cartItems.innerHTML =
+                "<p>Failed to load cart</p>";
+
+            cartTotal.textContent = "Total: 0$";
+
+            if (cartCount) {
+                cartCount.textContent = "0";
+            }
+        });
+}
+
+document.addEventListener("DOMContentLoaded", loadCart);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 async function removeItem(productId) {
     try {
         await fetch(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${productId}`, {
