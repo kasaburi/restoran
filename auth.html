@@ -1,22 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="./auth.css">
-    </head>
-    <body>
-        <form id="loginForm">
-            <h2>Authorization</h2>
-            <label for="email">email *</label>
-            <input type="email" id="email" name="email" required placeholder="email">
-            <label for="password">password *</label>
-            <input type="password" id="password" name="password" required minlength="6" placeholder="password">
-            <button type="submit" id="submit">Authorization</button>
-            <div id="loginError" style="color:red; display:none;"></div>
-            <div id="loginSuccess" style="color:green; display:none;"></div>
-        </form>
-        <script src="./auth.js"></script>
-    </body>
-</html> 
+<!DOCTYPE html> 
+<html lang="ka"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Authorization – Kitchen</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./auth.css"> 
+</head> 
+<body> 
+    <header class="content">
+        <div class="kitoll">
+            <a href="index.html" class="brand-logo">
+                <img src="./photo/oooo1.png" class="kit" alt="Restaurant Logo">
+                 <div class="brand">
+                    <a href="./index.html" class="brand-text">Home</a>
+                </div>
+            </a>
+            <div class="conteriner">    
+                <nav id="mainNav">
+                    <div class="allregistracion">
+                        <button id="themeToggle" title="Change Theme" aria-label="Toggle Theme">  ☀️ 🌑 </button>
+                        <button id="registerBtn" class="btn-secondary"><a href="register.html">Register</a></button>
+                        <button id="authBtn" class="btn-primary"><a href="auth.html" style="color:white;">Sign In</a></button>
+                        <button id="closeBurger" class="closeBurger" aria-label="Close menu">❌</button>
+                    </div>
+                </nav>
+                <button id="burger" class="burger" aria-label="Open menu">☰</button>
+                <div class="cart" onclick="openCart()" id="cartCount" title="View Cart">🛒</div>
+                <div id="popupModal" class="modal">
+                    <div class="modal-content">
+                        <button class="cancel" onclick="document.getElementById('popupModal').style.display='none'">❌</button>
+                        <div id="popupContent"></div>
+                    </div>
+                </div> 
+                <div id="cartModal" class="cart-modal">
+                    <div class="cart-drawer">
+                        <div class="cart-top">
+                            <div class="imgcart">
+                                <img src="./photo/kkkkkkk.png" class="cartimg" alt="Kitchen Icon">
+                                <p class="cart1">Cart</p>
+                            </div>
+                            <span onclick="closeCart()" class="close" title="Close Cart">×</span>
+                        </div>
+                        <div id="cartItems"></div>
+                        <div class="title">
+                            <h3 id="cartTotal">Total: 0$</h3>
+                            <div style="display: flex; gap: 0.75rem; width: 100%;">
+                                <button onclick="clearCart()" class="delete-all" style="flex: 1;">Delete All</button>
+                                <button onclick="openCheckout()" class="checkout" style="flex: 1.5;">Check Out</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="checkoutModal" class="modal">
+                    <div class="modal-content1">
+                        <button onclick="closeCheckout()" class="cancel" title="Close Checkout">❌</button>
+                        <h2>Payment</h2>
+                        <p id="checkoutTotal"></p>
+                        <input placeholder="Card Number (demo)" class="number">
+                        <div class="cvc1">
+                            <input placeholder="MM/YY" class="cvc">
+                            <input placeholder="CVC" class="cvc">
+                        </div>
+                        <button onclick="confirmPayment()" class="pay">Pay</button>
+                        <p id="paymentStatus"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="auth-main">
+        <form id="loginForm" novalidate> 
+            <div class="form-header">
+                <h2>Authorization</h2> 
+                <p class="form-subtitle">Welcome back! Sign in to access your kitchen account.</p>
+            </div>
+            <div class="field">
+                <label for="email">Email *</label> 
+                <input type="email" id="email" name="email" required placeholder="name@example.com"> 
+            </div>
+            <div class="field">
+                <div class="boxpas">
+                    <label for="password">Password *</label> 
+                    <input type="password" id="password" name="password" required minlength="6" placeholder="••••••••"> 
+                </div>
+                <div class="showPassword">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword">Show Password</label>
+                </div>
+            </div>
+            <button type="submit" id="submit" class="primary">Sign In</button> 
+            <p class="switch-auth">
+                Don't have an account? <a href="register.html">Register here</a>
+            </p>
+            <div id="loginError"></div> 
+            <div id="loginSuccess"></div> 
+        </form> 
+    </main>
+    <footer>
+        <div class="step">
+            <p class="step1">© Step Ordering 2026, All rights reserved</p>
+        </div>
+    </footer>
+    <script src="./auth.js"></script> 
+</body> 
+</html>

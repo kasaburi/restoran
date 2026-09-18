@@ -351,7 +351,7 @@ function loadCart() {
                             </p>
                         </div>
                     </div>
-                    <button onclick="removeItem(${item.product.id})" class="remove1">❌ Remove</button>
+                    <button onclick="removeItem(${item.product.id})" class="remove1">❌ </button>
                 </div>`;
             });
 
@@ -700,20 +700,43 @@ function openCart() {
 function closeCart() {
     cartModal.style.display = "none";
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("theme") === "dark") {
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+    if (isDark) {
         document.body.classList.add("dark");
+        document.body.classList.remove("light");
+    } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
     }
-});
 
-themeToggle?.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark") ? "dark" : "light"
-    );
-});
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.innerHTML = isDark ? "🌙" : "☀️";
+        btn.setAttribute("title", isDark ? "Switch to Day Mode" : "Switch to Night Mode");
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.onclick = () => {
+            const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+            localStorage.setItem("theme", nextTheme);
+            applyTheme(nextTheme);
+        };
+    }
+}
+
+document.addEventListener("DOMContentLoaded", initTheme);
+initTheme();
+
+document.addEventListener("DOMContentLoaded", initTheme);
+initTheme();
+
 
 
 

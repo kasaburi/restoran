@@ -126,7 +126,88 @@ form.addEventListener("submit", async (e) => {
 
 
 
+    // Live avatar preview update
+    const avatarInput = document.getElementById("avatar");
+    const avatarImg = document.getElementById("avatarImg");
+    if (avatarInput && avatarImg) {
+        avatarInput.addEventListener("input", () => {
+            const url = avatarInput.value.trim();
+            if (url) {
+                avatarImg.src = url;
+            }
+        });
+        avatarImg.addEventListener("error", () => {
+            avatarImg.src = "https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane";
+        });
+    }
+
+    // Burger menu toggle
+    const burger = document.getElementById("burger");
+    const mainNav = document.getElementById("mainNav");
+    const closeBurger = document.getElementById("closeBurger");
+    if (burger && mainNav) {
+        burger.addEventListener("click", () => mainNav.classList.add("active"));
+    }
+    if (closeBurger && mainNav) {
+        closeBurger.addEventListener("click", () => mainNav.classList.remove("active"));
+    }
 });
+
+// Theme toggle logic
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+    if (isDark) {
+        document.body.classList.add("dark");
+        document.body.classList.remove("light");
+    } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+    }
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.innerHTML = isDark ? "🌙" : "☀️";
+        btn.setAttribute("title", isDark ? "Switch to Day Mode" : "Switch to Night Mode");
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.onclick = () => {
+            const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+            localStorage.setItem("theme", nextTheme);
+            applyTheme(nextTheme);
+        };
+    }
+}
+
+document.addEventListener("DOMContentLoaded", initTheme);
+initTheme();
+
+// Cart / Modal helpers to prevent errors if clicked
+function openCart() {
+    const m = document.getElementById("cartModal");
+    if (m) m.style.display = "flex";
+}
+function closeCart() {
+    const m = document.getElementById("cartModal");
+    if (m) m.style.display = "none";
+}
+function openCheckout() {
+    const cm = document.getElementById("checkoutModal");
+    if (cm) cm.style.display = "flex";
+}
+function closeCheckout() {
+    const cm = document.getElementById("checkoutModal");
+    if (cm) cm.style.display = "none";
+}
+function clearCart() {}
+function confirmPayment() {}
+
 
 
 

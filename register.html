@@ -4,85 +4,160 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="/register.css">
+        <link rel="stylesheet" href="./register.css">
     </head>
     <body>
-        <form id="signupForm" novalidate>
-            <h2>Registration</h2>
-            <div class="row">
-                <div class="field">
-                    <label for="firstName"> firstName *</label>
-                    <input id="firstName" class="firstName" name="firstName" type="text" placeholder="name" required />
-                </div>
-                <div class="field1">
-                    <label for="lastName">lastName *</label>
-                    <input id="lastName"  class="lastName" name="lastName" type="text" placeholder="lastName" required />
-                </div>
-                <div class="field2">
-                    <label for="email">Email *</label>
-                    <input id="email" name="email" type="email" placeholder="@mail.com" required />
-                </div>
-                <div class="field3">
-                    <div class="boxpas">
-                        <label for="password">password *</label>
-                        <input type="password" id="password" name="password" required minlength="6" placeholder="******" >
+        <header class="content">
+            <div class="kitoll">
+                <a href="#" class="brand-logo">
+                    <img src="./photo/oooo1.png" class="kit" alt="Restaurant Logo">
+                    <div class="brand">
+                        <a href="./index.html" class="brand-text">Home</a>
                     </div>
-                    <div class="showPassword">
-                        <input type="checkbox" id="showPassword">
-                        <label for="showPassword" >show Password</label>
-                    </div>
-                </div>
-                <div class="field4">
-                    <label for="address">address *</label>
-                    <input id="address" name="address" type="text" placeholder="address" required />
-                </div>
-                <div class="field5">
-                    <label for="phone">phone *</label>
-                    <input
-                         id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+995599123456"
-                        pattern="^\+995\d{9}$"
-                        required />
-                </div>
-            </div>
-            <div class="field6">
-                <div class="one">
-                    <div class="box">
-                        <label for="age">age *</label>
-                        <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
-                    </div>
-                    <div class="box1">
-                        <label for="gender">gender *</label>
-                        <select id="gender" name="gender" required>
-                            <option value="" class="other">choose…</option>
-                            <option value="MALE" class="other">MALE</option>
-                            <option value="FEMALE" class="other">FEMALE</option>
-                            <option value="OTHER" class="other">OTHER</option>
-                        </select>
+                </a>
+                <div class="conteriner">    
+                    <nav id="mainNav">
+                        <div class="allregistracion">
+                            <button id="themeToggle" title="Change Theme" aria-label="Toggle Theme">
+                                ☀️ 🌑
+                            </button>
+                            <button id="registerBtn" class="btn-secondary"><a href="register.html">Registre</a></button>
+                            <button id="authBtn" class="btn-primary"><a href="./auth.html">auth</a></button>
+                            <button id="closeBurger" class="closeBurger" aria-label="Close menu">❌</button>
+                        </div>
+                    </nav>
+                    <button id="burger" class="burger" aria-label="Open menu">☰</button>
+                    <div class="cart" onclick="openCart()" id="cartCount" title="View Cart">🛒</div>
+                    <div id="popupModal" class="modal">
+                        <div class="modal-content">
+                            <button class="cancel" onclick="document.getElementById('popupModal').style.display='none'">❌</button>
+                            <div id="popupContent"></div>
+                        </div>
+                    </div> 
+                    <div id="cartModal" class="cart-modal">
+                    <div class="cart-drawer">
+                        <div class="cart-top">
+                            <div class="imgcart">
+                                <img src="./photo/kkkkkkk.png" class="cartimg" alt="Kitchen Icon">
+                                <p class="cart1">Cart</p>
+                            </div>
+                            <span onclick="closeCart()" class="close" title="Close Cart">×</span>
+                        </div>
+                        <div id="cartItems"></div>
+                        <div class="title">
+                            <h3 id="cartTotal">Total: 0$</h3>
+                            <div style="display: flex; gap: 0.75rem; width: 100%;">
+                                <button onclick="clearCart()" class="delete-all" style="flex: 1;">Delete All</button>
+                                <button onclick="openCheckout()" class="checkout" style="flex: 1.5;">Check Out</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="two">
-                    <div class="box2">
-                        <label for="zipcode">Zipcode *</label>
-                        <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required >
-                    </div>
-                    <div class="box3">
-                        <label for="avatar" class="url">Avatar URL *    <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane"></label>
-                        <div class="avatar1">
-                            <input id="avatar" name="avatar" type="url" placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane" required />         
-                        </div> 
+                <div id="checkoutModal" class="modal">
+                    <div class="modal-content1">
+                        <button onclick="closeCheckout()" class="cancel" title="Close Checkout">❌</button>
+                        <h2>Payment</h2>
+                        <p id="checkoutTotal"></p>
+                        <input placeholder="Card Number (demo)" class="number">
+                        <div class="cvc1">
+                            <input placeholder="MM/YY" class="cvc">
+                            <input placeholder="CVC" class="cvc">
+                        </div>
+                        <button onclick="confirmPayment()" class="pay">Pay</button>
+                        <p id="paymentStatus"></p>
                     </div>
                 </div>
             </div>
-            <div class="actions">
-                <button type="submit" class="primary">Registration</button>
-                <button type="reset" class="reset">clear</button>
-            </div>
-        </form>
-        <div id="formError"></div>
-        <div id="formSuccess"></div>
+        </div>
+    </header>
+    <main>
+        <div class="boxfood">
+            <img src="./photo/food.jpg" class="food">
+        </div>
+        <div class="signupForm">
+            <form id="signupForm" novalidate>
+                <h2>Registration</h2>
+                <div class="row">
+                    <div class="field">
+                        <label for="firstName"> firstName *</label>
+                        <input id="firstName" class="firstName" name="firstName" type="text" placeholder="name" required />
+                    </div>
+                    <div class="field1">
+                        <label for="lastName">lastName *</label>
+                        <input id="lastName"  class="lastName" name="lastName" type="text" placeholder="lastName" required />
+                    </div>
+                    <div class="field2">
+                        <label for="email">Email *</label>
+                        <input id="email" name="email" type="email" placeholder="@mail.com" required />
+                    </div>
+                    <div class="field3">
+                        <div class="boxpas">
+                            <label for="password">password *</label>
+                            <input type="password" id="password" name="password" required minlength="6" placeholder="******" >
+                        </div>
+                        <div class="showPassword">
+                            <input type="checkbox" id="showPassword">
+                            <label for="showPassword" >show Password</label>
+                        </div>
+                    </div>
+                    <div class="field4">
+                        <label for="address">address *</label>
+                        <input id="address" name="address" type="text" placeholder="address" required />
+                    </div>
+                    <div class="field5">
+                        <label for="phone">phone *</label>
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            placeholder="+995599123456"
+                            pattern="^\+995\d{9}$"
+                            required />
+                    </div>
+                </div>
+                <div class="field6">
+                    <div class="one">
+                        <div class="box">
+                            <label for="age">age *</label>
+                            <input id="age" name="age"  class="age" type="number" min="1" max="120" placeholder="age" required />
+                        </div>
+                        <div class="box1">
+                            <label for="gender">gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" class="other">choose…</option>
+                                <option value="MALE" class="other">MALE</option>
+                                <option value="FEMALE" class="other">FEMALE</option>
+                                <option value="OTHER" class="other">OTHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="two">
+                        <div class="box2">
+                            <label for="zipcode">Zipcode *</label>
+                            <input id="zipcode" name="zipcode" type="text" inputmode="numeric" pattern="^\d{4}$" placeholder="0178" required >
+                        </div>
+                        <div class="box3">
+                            <label for="avatar" class="url">Avatar URL *    <img id="avatarImg" alt="avatar preview" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane"></label>
+                            <div class="avatar1">
+                                <input id="avatar" name="avatar" type="url" placeholder="https://api.dicebear.com/7.x/pixel-art/svg?seed=Jane" required />         
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="primary">Registration</button>
+                    <button type="reset" class="reset">clear</button>
+                </div>
+            </form>
+            <div id="formError"></div>
+            <div id="formSuccess"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="step">
+            <p class="step1">© Step Ordering 2026, All rights reserved</p>
+        </div>
+    </footer>
         <script src="./register.js"></script>
     </body>
 </html>
