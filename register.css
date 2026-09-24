@@ -14,8 +14,8 @@
     --bg-input: #f8fafc;
 
     /* Primary Coral/Orange Accent */
-    --primary: #ff4d2e;
-    --primary-hover: #e83a1c;
+     --primary: #ff4d2e;
+    --primary-hover: #e83a1c; 
     --primary-light: #fff1ee;
     --primary-glow: rgba(255, 77, 46, 0.32);
 
@@ -50,6 +50,19 @@
 
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Night Mode (Dark Theme) */
 body.dark,
@@ -401,8 +414,8 @@ select {
 input:focus,
 select:focus {
     background: var(--bg-surface);
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px var(--primary-glow);
+    border-color: var(--border-hover);
+    box-shadow: none;
 }
 
 input::placeholder {

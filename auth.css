@@ -161,6 +161,24 @@ header.content {
     transform: scale(1.05);
 }
 
+
+
+
+.food{
+    width: 500px;
+    max-height: 450px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+
+
+
+
+
+
 .brand-logo {
     display: flex;
     align-items: center;
@@ -321,7 +339,7 @@ a:hover{
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 3rem 1.5rem;
 }
 
@@ -397,10 +415,11 @@ input[type="password"] {
     transition: var(--transition);
 }
 
-input:focus {
+input:focus,
+select:focus {
     background: var(--bg-surface);
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px var(--primary-glow);
+    border-color: var(--border-hover);
+    box-shadow: none;
 }
 
 input::placeholder {
@@ -663,10 +682,44 @@ footer {
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
+
+
+
+
+@media screen and (min-width: 769px)  and (max-width: 1209px) {
+
+
+.food{
+  min-width: 230px;
+  width: auto;
+
+}
+
+
+main{
+    gap: 32px;
+}
+}
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
     .burger {
         display: flex;
     }
+
+
+
+
+    
+.food{
+  display: none;
+}
 
     #mainNav {
         display: none;
